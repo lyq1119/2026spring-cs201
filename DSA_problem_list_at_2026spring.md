@@ -21,5 +21,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 |      |                |             |        |                                         |
 |      |                |             |        |                                         |
-| 0302 |                |             |        |                                         |
-| 0302 | 155.最小栈 | OOP, 辅助栈 | Medium | https://leetcode.cn/problems/min-stack/ |
+| 0303 | 155.最小栈 | OOP, 辅助栈 | Medium | https://leetcode.cn/problems/min-stack/ |
+| 0303 |  190.颠倒二进制位  | bit manipulation   | Easy |  https://leetcode.cn/problems/reverse-bits/        |
+| 0302 | 27300: 模型整理 | sortings, AI   | Mediium   |  http://cs101.openjudge.cn/pctbook/M27300   |
+| 0302 | 27653:Fraction类 | OOP   | Easy  | http://cs101.openjudge.cn/pctbook/E27653/  |

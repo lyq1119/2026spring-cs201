@@ -29,7 +29,7 @@ Logs:
 >
 > 课程微信群：
 >
-> <img src="/Users/hfyan/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_hkklp9z39u0a22_139d/temp/RWTemp/2026-03/2da8b5e87929bcf9e7a47aadd1c01950.jpg" alt="2da8b5e87929bcf9e7a47aadd1c01950" style="zoom: 33%;" />
+> <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/2da8b5e87929bcf9e7a47aadd1c01950.jpg" alt="2da8b5e87929bcf9e7a47aadd1c01950" style="zoom: 33%;" />
 >
 > 
 

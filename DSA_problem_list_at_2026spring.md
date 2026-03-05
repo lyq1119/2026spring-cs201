@@ -14,6 +14,8 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0309 | 1545. 找出第 N 个二进制字符串中的第 K 位 | dfs | Medium | https://leetcode.cn/problems/find-kth-bit-in-nth-binary-string/          |
+| 0309 |       |       | Easy |          |
 | 0308 | 01019:Number Sequence| binary search | Tough | http://cs101.openjudge.cn/practice/01019/          |
 | 0308 |       |       | Easy |          |
 | 0307 | 07207:神奇的幻方  | matrix      | Medium | http://cs101.openjudge.cn/practice/07207/          |

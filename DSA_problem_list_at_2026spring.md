@@ -2,7 +2,7 @@
 *Updated 2026-03-07 12:12 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
-题解，https://fuynaloft.github.io/sol101/
+题解，https://fuynaloft.github.io/sol101/ <span style="color:red">✔</span>
 
 <!--
 |  |       |       | Medium |          |

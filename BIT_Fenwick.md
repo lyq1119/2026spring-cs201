@@ -488,7 +488,7 @@ lass NumArray:
 
 ---
 
-### 树状数组 (Binary Indexed Tree)
+**树状数组 (Binary Indexed Tree)**
 
 树状数组是处理“动态前缀和”最简洁的工具。其核心思想是利用二进制低位的 `lowbit` 来管理不同长度的区间和。
 

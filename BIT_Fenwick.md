@@ -1,20 +1,48 @@
 # 树状数组（Binary Indexed Tree）
 
-*Updated 2026-03-07 19:09 GMT+8*
+*Updated 2026-03-08 23:06 GMT+8*
  *Compiled by Hongfei Yan (2025 Spring)*
 
 
 
-> prefix sum 前缀和。
-> 
->bit manipulation 位运算。
-> 
+# 术语
+
+## 前缀和（Prefix Sum）
+
+- **类别**：**技巧 / 预处理方法**
+- **说明**：前缀和本身不是一种完整的算法或数据结构，而是一种常用的**预处理技巧**，用于快速计算数组区间和。它通常配合数组使用，通过 O(n) 预处理实现 O(1) 的区间查询。
+- **典型应用**：子数组和、滑动窗口、差分数组等。
+
+------
+
+## 位运算（Bit Manipulation）
+
+- **类别**：**编程技巧**
+- **说明**：位运算是利用二进制位进行操作（如 &、|、^、<<、>> 等）来高效解决问题的方法。它本身不是算法或数据结构，但广泛用于**优化算法**、**状态压缩**、**哈希**、**奇偶判断**等场景。
+- **典型应用**：Lowbit、判断是否为 2 的幂、集合表示（状态压缩 DP）等。
+
+## 树状数组（Binary Indexed Tree, BIT）
+
+- **类别**：**数据结构**
+- **说明**：树状数组是一种用于高效处理**前缀和查询**与**单点更新**的数据结构，支持 O(log n) 的更新和查询。虽然名字中有“树”，但它通常用数组实现，结构隐含在索引的二进制表示中。
+- **典型应用**：动态前缀和、逆序对计数、区间更新+单点查询（配合差分）等。
+
+------
+
+## 归并排序（Merge Sort）
+
+- **类别**：**算法（排序算法 / 分治算法）**
+- **说明**：归并排序是一种经典的**分治算法**，时间复杂度稳定为 O(n log n)，可用于排序，也可用于解决如**逆序对计数**等问题。
+- **典型应用**：排序、求逆序对、外部排序等。
+
+
+
 > E190.颠倒二进制位
->bit manipulation, https://leetcode.cn/problems/reverse-bits/
+> bit manipulation, https://leetcode.cn/problems/reverse-bits/
 
 
 
-# 前缀和
+# 前缀和题目
 
 ## 示例E303.区域和检索 - 数组不可变
 
@@ -542,6 +570,14 @@ class NumArray:
 
 
 
+# 位运算题目
+
+## 示例。。。
+
+
+
+
+
 # 动态前缀和：树状数组
 
 树状数组或二叉索引树（英语：Binary Indexed Tree），又以其发明者命名为Fenwick树，最早由Peter M. Fenwick于1994年以A New Data Structure for Cumulative Frequency Tables为题发表。其初衷是解决数据压缩里的累积频率（Cumulative Frequency）的计算问题，现多用于高效计算数列的<mark>前缀和， 区间和</mark>。
@@ -753,9 +789,9 @@ http://en.wikipedia.org/wiki/Fenwick_tree
 
 
 
-### 示例20018:蚂蚁王国的越野跑
+# 练习20018:蚂蚁王国的越野跑
 
-BIT, http://cs101.openjudge.cn/practice/20018/
+merge sort, binary indexed tree, binary search, , http://cs101.openjudge.cn/practice/20018/
 
 为了促进蚂蚁家族身体健康，提高蚁族健身意识，蚂蚁王国举行了越野跑。假设越野跑共有N个蚂蚁参加，在一条笔直的道路上进行。N个蚂蚁在起点处站成一列，相邻两个蚂蚁之间保持一定的间距。比赛开始后，N个蚂蚁同时沿着道路向相同的方向跑去。换句话说，这N个蚂蚁可以看作x轴上的N个点，在比赛开始后，它们同时向X轴正方向移动。假设越野跑的距离足够远，这N个蚂蚁的速度有的不相同有的相同且保持匀速运动，那么会有多少对参赛者之间发生“赶超”的事件呢？此题结果比较大，需要定义long long类型。请看备注。
 
@@ -775,6 +811,7 @@ BIT, http://cs101.openjudge.cn/practice/20018/
 样例输入
 
 ```
+sample1 input:
 5
 1
 5
@@ -782,6 +819,7 @@ BIT, http://cs101.openjudge.cn/practice/20018/
 7
 6
 
+sample2 input:
 5
 1
 5
@@ -793,8 +831,10 @@ BIT, http://cs101.openjudge.cn/practice/20018/
 样例输出
 
 ```
+sample1 output:
 7
 
+sample2 output:
 8
 ```
 
@@ -810,42 +850,271 @@ long long，有符号 64位整数，所占8个字节(Byte)
 
 
 
+这题本质上是 **统计逆序对**。
+
+**关键观察**
+
+蚂蚁一开始按位置从前到后排好：
+若前面的蚂蚁 `i` 速度 `v[i]` **小于** 后面的蚂蚁 `j` 速度 `v[j]`，那么 `j` 一定会追上 `i`。
+
+因此需要统计：`i < j` 且 `v[i] < v[j]` 的对数。
+
+### 直觉解（bisect）
+
+> 复杂度：O(N^2)**
+>
+> ```python
+> from bisect import bisect_left
+> n=int(input())
+> v=[]
+> ans=0
+> for i in range(n):
+>     p=int(input())
+>     index=bisect_left(v,p)
+>     v.insert(index,p)
+>     ans+=index
+> print(ans)
+> ```
+>
+> > **bisect_left 的作用**
+> >
+> > ```
+> > index = bisect_left(v, p)
+> > ```
+> >
+> > 含义：在有序数组 `v` 中找到 **p 应该插入的位置**
+> >
+> > 并且这个位置满足：
+> >
+> > ```
+> > v[0:index] < p
+> > v[index:] >= p
+> > ```
+> >
+> > 因此：
+> >
+> > ```
+> > index = 已有元素中 < p 的个数
+> > ```
+> >
+> > 这正好就是需要统计的数量。
+>
+> 
+
+
+
+### 分治解（归并统计）
+
+而 **归并排序统计逆序对**通常统计的是：`i < j` 且 `v[i] > v[j]`
+
+所以只要把速度 **取负数**，就能直接用逆序对模板。
+
+时间复杂度：O(N log N)，适合 N ≤ 100000。
+
+------
+
+**Python实现（归并排序统计）**
+
 ```python
-# 张清州 24化学学院
-def bit_sum(BIT, i):
-    """计算树状数组 BIT 从索引 1 到 i 的前缀和"""
-    s = 0
-    while i > 0:
-        s += BIT[i]
-        i -= i & (-i)  # 回溯至祖先节点
-    return s
+import sys
+sys.setrecursionlimit(1000000)
+
+def merge_sort(arr):
+    n = len(arr)
+    if n <= 1:
+        return arr, 0
+
+    mid = n // 2
+    left, cnt1 = merge_sort(arr[:mid])
+    right, cnt2 = merge_sort(arr[mid:])
+
+    i = j = 0
+    merged = []
+    cnt = cnt1 + cnt2
+
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            merged.append(left[i])
+            i += 1
+        else:
+            merged.append(right[j])
+            cnt += len(left) - i
+            j += 1
+
+    merged.extend(left[i:])
+    merged.extend(right[j:])
+
+    return merged, cnt
 
 
-def bit_update(BIT, i, v):
-    """在树状数组 BIT 中更新索引 i 处的值 v"""
-    while i < len(BIT):
-        BIT[i] += v
-        i += i & (-i)  # 回溯至祖先节点
+def main():
+    input = sys.stdin.readline
+    n = int(input())
+    v = [int(input()) for _ in range(n)]
+
+    # 转成负数，把 v[i] < v[j] 转成逆序对
+    arr = [-x for x in v]
+
+    _, ans = merge_sort(arr)
+    print(ans)
 
 
-# 读取输入并进行离散化
-n = int(input())
-values = [int(input()) for _ in range(n)]
-
-# 离散化：建立值到索引的映射
-sorted_vals = sorted(set(values))
-value_to_index = {v: i + 1 for i, v in enumerate(sorted_vals)}
-
-# 初始化树状数组
-BIT = [0] * (len(sorted_vals) + 1)
-count = 0
-
-# 计算逆序对
-for v in values:
-    index = value_to_index[v]
-    count += bit_sum(BIT, index - 1)  # 查询比当前值小的元素个数
-    bit_update(BIT, index, 1)  # 在树状数组中记录当前值出现次数
-
-print(count)
+if __name__ == "__main__":
+    main()
 ```
 
+------
+
+思维图（非常关键）
+
+原序列：
+
+```
+位置: 1 2 3 4 5
+速度: 1 5 10 7 6
+```
+
+追赶发生条件：
+
+```
+前面慢，后面快
+v[i] < v[j]
+```
+
+例如：
+
+```
+1 < 5
+1 < 10
+1 < 7
+1 < 6
+...
+```
+
+统计这种对数即可。
+
+------
+
+**为什么题目提示归并排序**
+
+因为：
+
+- N 最大 **100000**
+- 暴力 O(N^2) 会 **超时**
+- 归并统计逆序对是经典 O(N log N)
+
+------
+
+
+
+### 数据结构解（BIT）
+
+下面给出 **BIT（树状数组）版本**。这个题其实非常适合讲 **树状数组统计顺序对**。
+
+我们要统计：`i < j` 且 `v[i] < v[j]` 
+
+思路是 **从左到右扫描**：
+
+- 已经扫描过的蚂蚁速度放进树状数组
+- 当前蚂蚁速度为 `v`
+- 查询 **之前有多少速度 < v**
+
+这样就得到所有 `(i,j)`。但速度范围可能很大，所以需要 **离散化**。
+
+------
+
+**Python（BIT实现）**
+
+```python
+import sys
+input = sys.stdin.readline
+
+class BIT:
+    def __init__(self, n):
+        self.n = n
+        self.tree = [0]*(n+1)
+
+    def update(self, i, v=1):
+        while i <= self.n:
+            self.tree[i] += v
+            i += i & -i
+
+    def query(self, i):
+        s = 0
+        while i > 0:
+            s += self.tree[i]
+            i -= i & -i
+        return s
+
+
+n = int(input())
+v = [int(input()) for _ in range(n)]
+
+# 1. 离散化
+vals = sorted(set(v))
+rank = {x:i+1 for i,x in enumerate(vals)}
+
+# 2. BIT
+bit = BIT(len(vals))
+
+ans = 0
+
+# 3. 从左到右扫描
+for x in v:
+    r = rank[x]
+    
+    # 统计之前速度 < x
+    ans += bit.query(r-1)
+    
+    # 当前速度加入
+    bit.update(r)
+
+print(ans)
+```
+
+------
+
+**运行逻辑示例**
+
+输入：
+
+```
+1 5 10 7 6
+```
+
+扫描过程：
+
+| 当前蚂蚁 | 速度 | 之前更慢的数量 | 累计 |
+| -------- | ---- | -------------- | ---- |
+| 1        | 1    | 0              | 0    |
+| 2        | 5    | 1              | 1    |
+| 3        | 10   | 2              | 3    |
+| 4        | 7    | 2              | 5    |
+| 5        | 6    | 2              | 7    |
+
+结果：
+
+```
+7
+```
+
+------
+
+复杂度
+
+- 离散化：O(N log N)
+- BIT操作：O(N log N)
+
+总体：O(N log N)，适合 N=10^5。
+
+------
+
+**课堂讲解建议**
+
+这题特别适合讲三种方法的对比：
+
+1️⃣ 暴力 O(N^2)
+
+2️⃣ 归并排序统计逆序对 O(N log N)
+
+3️⃣ 树状数组统计顺序对 O(N log N)

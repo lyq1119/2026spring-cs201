@@ -1,7 +1,15 @@
 # Week2 树状数组（Binary Indexed Tree）
 
-*Updated 2026-03-09 23:06 GMT+8*
+*Updated 2026-03-10 14:11 GMT+8*
  *Compiled by Hongfei Yan (2025 Spring)*
+
+
+
+知识点：位运算（判断2的幂、lowbit、状态压缩），前缀和，树状数组，离散化，bisect_left，归并排序
+
+https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt
+
+![image-20240301091407727](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20240301091407727.png)
 
 
 
@@ -15,7 +23,264 @@
 
 
 
-## E190.颠倒二进制位
+## bit_count, bit_length
+
+### E1356.根据数字二进制下 1 的数目排序（assign#1）
+
+bit manipulation, https://leetcode.cn/problems/sort-integers-by-the-number-of-1-bits/
+
+给你一个整数数组 `arr` 。请你将数组中的元素按照其二进制表示中数字 **1** 的数目升序排序。
+
+如果存在多个数字二进制中 **1** 的数目相同，则必须将它们按照数值大小升序排列。
+
+请你返回排序后的数组。
+
+ 
+
+**示例 1：**
+
+```
+输入：arr = [0,1,2,3,4,5,6,7,8]
+输出：[0,1,2,4,8,3,5,6,7]
+解释：[0] 是唯一一个有 0 个 1 的数。
+[1,2,4,8] 都有 1 个 1 。
+[3,5,6] 有 2 个 1 。
+[7] 有 3 个 1 。
+按照 1 的个数排序得到的结果数组为 [0,1,2,4,8,3,5,6,7]
+```
+
+**示例 2：**
+
+```
+输入：arr = [1024,512,256,128,64,32,16,8,4,2,1]
+输出：[1,2,4,8,16,32,64,128,256,512,1024]
+解释：数组中所有整数二进制下都只有 1 个 1 ，所以你需要按照数值大小将它们排序。
+```
+
+**示例 3：**
+
+```
+输入：arr = [10000,10000]
+输出：[10000,10000]
+```
+
+**示例 4：**
+
+```
+输入：arr = [2,3,5,7,11,13,17,19]
+输出：[2,3,5,17,7,11,13,19]
+```
+
+**示例 5：**
+
+```
+输入：arr = [10,100,1000,10000]
+输出：[10,100,10000,1000]
+```
+
+ 
+
+**提示：**
+
+- `1 <= arr.length <= 500`
+- `0 <= arr[i] <= 10^4`
+
+
+
+```
+class Solution:
+    def sortByBits(self, arr: List[int]) -> List[int]:
+        arr.sort(key = lambda x: (x.bit_count(), x))
+        return arr
+```
+
+
+
+### E3827.统计单比特整数
+
+bit manipulation, https://leetcode.cn/problems/count-monobit-integers/
+
+给你一个整数 `n`。
+
+如果一个整数的二进制表示中所有位都相同，则称其为 **单比特数**（**Monobit**）。
+
+返回范围`[0, n]`（包括两端）内 **单比特数** 的个数。
+
+ 
+
+**示例 1：**
+
+**输入：** n = 1
+
+**输出：** 2
+
+**解释：**
+
+- 范围`[0, 1]`内的整数对应的二进制表示为`"0"`和`"1"`。
+- 每个表示都由相同的位组成，因此答案是2。
+
+**示例 2：**
+
+**输入：** n = 4
+
+**输出：** 3
+
+**解释：**
+
+- 范围`[0, 4]`内的整数对应的二进制表示为`"0"`、`"1"`、`"10"`、`"11"`和`"100"`。
+- 只有`0`、`1`和`3`满足单比特条件。因此答案是3。
+
+ 
+
+**提示：**
+
+- `0 <= n <= 1000`
+
+
+
+```python
+class Solution:
+    def countMonobit(self, n: int) -> int:
+        count = 0
+        for i in range(n+1):
+            if (1 << i.bit_length()) - 1 == i:
+                count += 1
+        
+        return count
+```
+
+
+
+
+
+## E868.二进制间距（assign#2）
+
+bit manipulation, https://leetcode.cn/problems/binary-gap/
+
+给定一个正整数 `n`，找到并返回 `n` 的二进制表示中两个 **相邻** 1 之间的 **最长距离** 。如果不存在两个相邻的 1，返回 `0` 。
+
+如果只有 `0` 将两个 `1` 分隔开（可能不存在 `0` ），则认为这两个 1 彼此 **相邻** 。两个 `1` 之间的距离是它们的二进制表示中位置的绝对差。例如，`"1001"` 中的两个 `1` 的距离为 3 。
+
+ 
+
+**示例 1：**
+
+```
+输入：n = 22
+输出：2
+解释：22 的二进制是 "10110" 。
+在 22 的二进制表示中，有三个 1，组成两对相邻的 1 。
+第一对相邻的 1 中，两个 1 之间的距离为 2 。
+第二对相邻的 1 中，两个 1 之间的距离为 1 。
+答案取两个距离之中最大的，也就是 2 。
+```
+
+**示例 2：**
+
+```
+输入：n = 8
+输出：0
+解释：8 的二进制是 "1000" 。
+在 8 的二进制表示中没有相邻的两个 1，所以返回 0 。
+```
+
+**示例 3：**
+
+```
+输入：n = 5
+输出：2
+解释：5 的二进制是 "101" 。
+```
+
+ 
+
+**提示：**
+
+- `1 <= n <= 10^9`
+
+
+
+思路：遍历二进制字符串，记录上一个 `'1'` 的位置，并在遇到新的 `'1'` 时更新最大距离。
+
+```python
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        s = bin(n)[2:]
+        max_dis = 0
+        left, right = 0, 0
+        for i in range(1, len(s)):
+            if s[i] == '1':
+                max_dis = max(max_dis, i - left)
+                left = i
+        
+        return max_dis
+```
+
+
+
+为了代码的清晰性和鲁棒性，可以稍作优化，使其逻辑更明确，并避免依赖“`s[0]` 一定是 `'1'`”这一隐含前提（尽管在本题中成立）。
+
+此外，还可以不转成字符串，直接用位运算处理，更高效、更符合“二进制间距”的题意。
+
+------
+
+**优化版本 1：保持字符串思路，但逻辑更清晰**
+
+```python
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        s = bin(n)[2:]
+        max_dis = 0
+        prev = -1  # 上一个 '1' 的位置
+        for i, ch in enumerate(s):
+            if ch == '1':
+                if prev != -1:
+                    max_dis = max(max_dis, i - prev)
+                prev = i
+        return max_dis
+```
+
+**优点**：
+
+- 明确只在两个 `'1'` 之间计算距离。
+- 初始 `prev = -1` 表示尚未遇到第一个 `'1'`，逻辑清晰。
+- 避免了对 `s[0] == '1'` 的隐式依赖（虽然实际成立）。
+
+------
+
+**优化版本 2：使用位运算（推荐，更高效）**
+
+```python
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        max_dis = 0
+        prev = -1
+        i = 0
+        while n:
+            if n & 1:
+                if prev != -1:
+                    max_dis = max(max_dis, i - prev)
+                prev = i
+            n >>= 1
+            i += 1
+        return max_dis
+```
+
+**优点**：
+
+- 不需要生成字符串，节省空间。
+- 时间复杂度相同 O(log n)，但常数更小。
+- 更贴近底层二进制操作，适合面试展示位运算能力。
+
+------
+
+**总结**
+
+你原来的代码在 LeetCode 上可能能通过（因为 `bin(n)[2:]` 确实以 `'1'` 开头），但存在逻辑隐患（比如若输入允许前导零就会出错）。推荐使用 **优化版本 1 或 2**，尤其是**版本 2 的位运算解法**更为优雅高效。
+
+
+
+## E190.颠倒二进制位（assign#1）
 
 bit manipulation, https://leetcode.cn/problems/reverse-bits/
 
@@ -84,7 +349,7 @@ class Solution:
 
 
 
-## M1680.连接连续二进制数字
+## M1680.连接连续二进制数字（assign#2）
 
 bit manipulation, https://leetcode.cn/problems/concatenation-of-consecutive-binary-numbers/
 
@@ -166,7 +431,7 @@ class Solution:
 
 
 
-## M1461.检查一个字符串是否包含所有长度为 K 的二进制子串
+## M1461.检查一个字符串是否包含所有长度为 K 的二进制子串（assign#2）
 
 bit manipulation, https://leetcode.cn/problems/check-if-a-string-contains-all-binary-codes-of-size-k/
 
@@ -309,7 +574,7 @@ bitmask dp, http://cs101.openjudge.cn/practice/30201/
 > **1. I/O 与数据结构优化（基础）**
 >
 > - **sys.stdin.read**: 原代码在循环里用 input()，每次都要处理缓冲区。用 read().split() 将所有数据一次性读入内存并切分，配合迭代器 iter() 和 next()，是 Python 刷题处理大量数据的标准做法。
-> - **列表 vs 字典**: 原代码用 d = {} 存图。字典查询需要哈希计算，而列表（数组）是基于内存偏移量的直接访问。在高频访问场景下，列表要快得多。
+> - **列表 vs 字典**: 原代码用 d = {} 存图。字典查询需要哈希计算，而列表（数组）是基于内存偏移量的直接访问。<mark>在高频访问场景下，列表要快得多</mark>。
 >
 > **2.逻辑剪枝（中级）**
 >
@@ -318,7 +583,7 @@ bitmask dp, http://cs101.openjudge.cn/practice/30201/
 >
 > **3.Python 特性优化（高级 - 提速关键）**
 >
-> - **去处 min() 函数**: 这是 Python 算法题优化的“杀手锏”。`dp[new][k] = min(dp[new][k], val)` 看起来很简洁。但 Python 的函数调用栈开销很大。在千万级别的循环中，这会严重拖慢速度。改成 `if val < dp[new][k]: dp[new][k] = val` 虽然代码多了两行，但运行速度会有质的飞跃。
+> - **去除 min() 函数**: 这是 Python 算法题优化的“杀手锏”。`dp[new][k] = min(dp[new][k], val)` 看起来很简洁。但 Python 的函数调用栈开销很大。在千万级别的循环中，这会严重拖慢速度。改成 `if val < dp[new][k]: dp[new][k] = val` 虽然代码多了两行，但运行速度会有质的飞跃。
 > - **局部变量缓存**: `curr_dist = dp[mask][u]`。在 Python 中，访问 `dp[mask][u]` 需要两次列表索引操作。把它存为局部变量 curr_dist，后续计算只读这个变量，减少了索引查找开销。
 
 运行时间：3867ms
@@ -797,7 +1062,7 @@ list(accumulate(nums, operator.mul))
 
 
 
-## 顺便掌握：M304.二维区域和检索 - 矩阵不可变
+## 练习M304.二维区域和检索 - 矩阵不可变（assign#2）
 
 prefix sum, https://leetcode.cn/problems/range-sum-query-2d-immutable/
 
@@ -942,15 +1207,105 @@ class NumMatrix:
 
 
 
-# 3 动态前缀和：树状数组（Binary Indexed Tree, BIT）
+# 3 动态前缀和：树状数组（BIT）
 
 - **类别**：**数据结构**
-- **说明**：树状数组是一种用于高效处理**前缀和查询**与**单点更新**的数据结构，支持 O(log n) 的更新和查询。虽然名字中有“树”，但它通常用数组实现，结构隐含在索引的二进制表示中。
+- **说明**：树状数组（Binary Indexed Tree, BIT）是一种用于高效处理**前缀和查询**与**单点更新**的数据结构，支持 O(log n) 的更新和查询。虽然名字中有“树”，但它通常用数组实现，结构隐含在索引的二进制表示中。
 - **典型应用**：动态前缀和、逆序对计数、区间更新+单点查询（配合差分）等。
 
 ------
 
-## M307.区域和检索 - 数组可修改？
+树状数组或二叉索引树（英语：Binary Indexed Tree），又以其发明者命名为Fenwick树，最早由Peter M. Fenwick于1994年以A New Data Structure for Cumulative Frequency Tables为题发表。其初衷是解决数据压缩里的累积频率（Cumulative Frequency）的计算问题，现多用于高效计算数列的<mark>前缀和， 区间和</mark>。
+
+一般来说，如果在查询的过程中元素可能发生改变（例如插入、修改或删除），就称这种查询为<mark>在线查询</mark>;如果在查询过程中元素不发生改变，就称为**离线查询**。
+
+
+
+> 二叉索引树（树状数组）用于处理对固定大小的数组进行以下多种操作的这类问题。
+>
+> - 前缀操作（求和、求积、异或、按位或等）。注意，区间操作也可以通过前缀来解决。例如，从索引L到R的区间和等于到R（包含R）的前缀和减去到L - 1的前缀和。
+> - 更新数组中的一个元素
+>
+> 这两种操作的时间复杂度均为$O(logN)$。注意，我们需要$O(NlogN)$的预处理时间和$O(N)$的辅助空间。
+>
+> 
+>
+> 让我们考虑以下问题来理解二叉索引树（Binary Indexed Tree, BIT）：
+> 我们有一个数组 $arr[0 . . . n-1]$。我们希望实现两个操作：
+>
+> 1. 计算前i个元素的和。
+> 2. 修改数组中指定位置的值，即设置 $arr[i] = x$，其中 $0 \leq i \leq n-1$。
+>
+> 一个简单的解决方案是从 0 到 i-1 遍历并计算这些元素的总和。要更新一个值，只需执行 $arr[i] = x$。第一个操作的时间复杂度为$O(N)$，而第二个操作的时间复杂度为$O(1)$。另一种简单的解决方案是创建一个额外的数组，并在这个新数组的第i个位置存储前i个元素的总和。这样，给定范围的和可以在$O(1)$时间内计算出来，但是更新操作现在需要$O(N)$时间。当查询操作非常多而更新操作非常少时，这种方法表现良好。
+>
+> **我们能否在$O(log N)$时间内同时完成查询和更新操作呢？**
+> 一种高效的解决方案是使用段树（Segment Tree），它能够在$O(logN)$时间内完成这两个操作。
+> 另一种解决方案是二叉索引树（Binary Indexed Tree，也称作Fenwick Tree），同样能够以$O(logN)$的时间复杂度完成查询和更新操作。与段树相比，二叉索引树所需的空间更少，且实现起来更加简单。
+
+
+
+### lowbit 运算
+
+二进制中一个经典应用是 lowbit 运算，即 `lowbit(x) = x & (-x)`。
+
+**整数的二进制表示常用的方式之一是使用补码**
+
+补码是一种表示有符号整数的方法，它将负数的二进制表示转换为正数的二进制表示。补码的优势在于可以使用相同的算术运算规则来处理正数和负数，而不需要特殊的操作。
+
+在补码表示中，最高位用于表示符号位，0表示正数，1表示负数。其他位表示数值部分。
+
+具体将一个整数转换为补码的步骤如下：
+
+1. 如果整数是正数，则补码等于二进制表示本身。
+2. 如果整数是负数，则需要先将其绝对值转换为二进制，然后取反，最后加1。等价于<mark>把二进制最右边的1的左边的每一位都取反</mark>。
+
+例如，假设要将 -12 转换为补码：
+
+1. 12的二进制表示为00001100。
+
+2. 将其取反得到11110011。
+
+3. 加1得到11110100，这就是 -12 的补码表示。
+
+
+通过`lowbit(x) = x & (-x)`就是取 x 的二进制最右边的1和它右边所有的0，因此它一定是2的幂次，即1、2、4、8等。
+
+对 x = 12 = $(00001100)_2$，有 -x = $(11110100)_2$ ，x & (-x) = 4
+
+对 x= 6 = $(110)_2$，有 -x = $(010)_2$，x & (-x) = 2
+
+
+
+### 表示方式
+
+树状数组（Binary Indexed Tree，BIT）用数组形式表示。它其实仍然是一个数组，并且与 sum 数组类似，是一个用来记录和的数组，只不过它存放的不是前 i 个整数之和，而是在 <mark>i 号位之前（含i号位）lowbit(i) 个整数之和</mark>。树状数组的大小等于输入数组的大小，记为n。在下面的代码中，为了便于实现，使用n+1的大小。
+
+如下图 所示，数组A是原始数组，有 A[1]~ A[16]共 16个元素；数组 C是树状数组，其中 C[i]存放数组 A 中i号位之前 lowbit(i) 个元素之和。显然，<mark>C[i]的覆盖长度是 lowbit(i)（也可以理解成管辖范围）</mark>，它是2的幂次，即 1、2、4、8等。
+
+需要注意的是，树状数组仍旧是一个平坦的数组，画成树形是为了让存储的元素更容易观察。
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250320134426632.png" alt="image-20250320134426632" style="zoom: 67%;" />
+
+<center>图 树状数组定义图</center>
+
+
+
+```
+C[1] = A[1]  													(长度为 lowbit(1) = 1) 
+C[2] = A[1] + A[2]  									(长度为 lowbit(2) = 2) 
+C[3] = A[3]  													(长度为 lowbit(3) = 1) 
+C[4] = A[1] + A[2] + A[3] + A[4]  		(长度为 lowbit(4) = 4) 
+C[5] = A[5]  													(长度为 lowbit(5) = 1) 
+C[6] = A[5] + A[6]  									(长度为 lowbit(6) = 2) 
+C[7] = A[7]  													(长度为 lowbit(7) = 1) 
+C[8] = A[1] + A[2] + A[3] + A[4] + A[5] + A[6] + A[7] + A[8]  (长度为 lowbit(8) = 8) 
+```
+
+<mark>树状数组的定义非常重要，特别是“C[i]的覆盖长度是 lowbit(i)”这点；另外，树状数组的下标必须从1开始</mark>。
+
+
+
+## 示例M307.区域和检索 - 数组可修改？
 
 binary indexed tree, segment tree, https://leetcode.cn/problems/range-sum-query-mutable/
 
@@ -1099,7 +1454,7 @@ class NumArray:
 
 
 
-## M20018:蚂蚁王国的越野跑
+## 练习M20018:蚂蚁王国的越野跑
 
 merge sort, binary indexed tree, binary search, , http://cs101.openjudge.cn/practice/20018/
 
@@ -1169,7 +1524,7 @@ long long，有符号 64位整数，所占8个字节(Byte)
 
 因此需要统计：`i < j` 且 `v[i] < v[j]` 的对数。
 
-### 直觉解（bisect）
+### 直觉解（<mark>bisect</mark>）
 
 > 复杂度：O(N^2)**
 >
@@ -1431,6 +1786,24 @@ print(ans)
 
 
 
+## 练习M30178:数字华容道（Easy Version）（assign#2）
+
+merge sort, binary indexed tree, http://cs101.openjudge.cn/practice/30178/
+
+
+
+## 练习T27018: 康托展开
+
+binary indexed tree, http://cs101.openjudge.cn/practice/27018/
+
+
+
+## 练习T27093: 排队又来了
+
+binary indexed tree, http://cs101.openjudge.cn/practice/27093/
+
+
+
 # 4 归并排序（Merge Sort）
 
 - **类别**：**算法（排序算法 / 分治算法）**
@@ -1439,7 +1812,54 @@ print(ans)
 
 
 
-## M20018:蚂蚁王国的越野跑
+## 练习M02299: Ultra-QuickSort
+
+merge sort, http://cs101.openjudge.cn/practice/02299/
+
+In this problem, you have to analyze a particular sorting algorithm. The algorithm processes a sequence of n distinct integers by swapping two adjacent sequence elements until the sequence is sorted in ascending order. For the input sequence 9 1 0 5 4 , Ultra-QuickSort produces the output 0 1 4 5 9 . Your task is to determine how many swap operations Ultra-QuickSort needs to perform in order to sort a given input sequence.
+
+**输入**
+
+The input contains several test cases. Every test case begins with a line that contains a single integer n < 500,000 -- the length of the input sequence. Each of the the following n lines contains a single integer 0 ≤ a[i] ≤ 999,999,999, the i-th input sequence element. Input is terminated by a sequence of length n = 0. This sequence must not be processed.
+
+**输出**
+
+For every input sequence, your program prints a single line containing an integer number op, the minimum number of swap operations necessary to sort the given input sequence.
+
+样例输入
+
+
+
+```
+5
+9
+1
+0
+5
+4
+3
+1
+2
+3
+0
+```
+
+样例输出
+
+
+
+```
+6
+0
+```
+
+来源
+
+Waterloo local 2005.02.05
+
+
+
+## 练习M20018:蚂蚁王国的越野跑
 
 merge sort, binary indexed tree, binary search,  http://cs101.openjudge.cn/practice/20018/
 
@@ -1447,97 +1867,17 @@ merge sort, binary indexed tree, binary search,  http://cs101.openjudge.cn/pract
 
 
 
+
+
+
+
 # 附录：
 
 ## A.树状数组的额外说明
 
-树状数组或二叉索引树（英语：Binary Indexed Tree），又以其发明者命名为Fenwick树，最早由Peter M. Fenwick于1994年以A New Data Structure for Cumulative Frequency Tables为题发表。其初衷是解决数据压缩里的累积频率（Cumulative Frequency）的计算问题，现多用于高效计算数列的<mark>前缀和， 区间和</mark>。
+取自《算法笔记》 胡凡、曾磊. 2016。
 
-一般来说，如果在查询的过程中元素可能发生改变（例如插入、修改或删除），就称这种查询为<mark>在线查询</mark>;如果在查询过程中元素不发生改变，就称为**离线查询**。
-
-
-
-> 二叉索引树（树状数组）用于处理对固定大小的数组进行以下多种操作的这类问题。
->
-> - 前缀操作（求和、求积、异或、按位或等）。注意，区间操作也可以通过前缀来解决。例如，从索引L到R的区间和等于到R（包含R）的前缀和减去到L - 1的前缀和。
-> - 更新数组中的一个元素
->
-> 这两种操作的时间复杂度均为$O(logN)$。注意，我们需要$O(NlogN)$的预处理时间和$O(N)$的辅助空间。
->
-> 
->
-> 让我们考虑以下问题来理解二叉索引树（Binary Indexed Tree, BIT）：
-> 我们有一个数组 $arr[0 . . . n-1]$。我们希望实现两个操作：
->
-> 1. 计算前i个元素的和。
-> 2. 修改数组中指定位置的值，即设置 $arr[i] = x$，其中 $0 \leq i \leq n-1$。
->
-> 一个简单的解决方案是从 0 到 i-1 遍历并计算这些元素的总和。要更新一个值，只需执行 $arr[i] = x$。第一个操作的时间复杂度为$O(N)$，而第二个操作的时间复杂度为$O(1)$。另一种简单的解决方案是创建一个额外的数组，并在这个新数组的第i个位置存储前i个元素的总和。这样，给定范围的和可以在$O(1)$时间内计算出来，但是更新操作现在需要$O(N)$时间。当查询操作非常多而更新操作非常少时，这种方法表现良好。
->
-> **我们能否在$O(log N)$时间内同时完成查询和更新操作呢？**
-> 一种高效的解决方案是使用段树（Segment Tree），它能够在$O(logN)$时间内完成这两个操作。
-> 另一种解决方案是二叉索引树（Binary Indexed Tree，也称作Fenwick Tree），同样能够以$O(logN)$的时间复杂度完成查询和更新操作。与段树相比，二叉索引树所需的空间更少，且实现起来更加简单。
-
-
-
-### lowbit 运算
-
-二进制中一个经典应用是 lowbit 运算，即 `lowbit(x) = x & (-x)`。
-
-**整数的二进制表示常用的方式之一是使用补码**
-
-补码是一种表示有符号整数的方法，它将负数的二进制表示转换为正数的二进制表示。补码的优势在于可以使用相同的算术运算规则来处理正数和负数，而不需要特殊的操作。
-
-在补码表示中，最高位用于表示符号位，0表示正数，1表示负数。其他位表示数值部分。
-
-具体将一个整数转换为补码的步骤如下：
-
-1. 如果整数是正数，则补码等于二进制表示本身。
-2. 如果整数是负数，则需要先将其绝对值转换为二进制，然后取反，最后加1。等价于<mark>把二进制最右边的1的左边的每一位都取反</mark>。
-
-例如，假设要将 -12 转换为补码：
-
-1. 12的二进制表示为00001100。
-
-2. 将其取反得到11110011。
-
-3. 加1得到11110100，这就是 -12 的补码表示。
-
-
-通过`lowbit(x) = x & (-x)`就是取 x 的二进制最右边的1和它右边所有的0，因此它一定是2的幂次，即1、2、4、8等。
-
-对 x = 12 = $(00001100)_2$，有 -x = $(11110100)_2$ ，x & (-x) = 4
-
-对 x= 6 = $(110)_2$，有 -x = $(010)_2$，x & (-x) = 2
-
-
-
-### 表示方式
-
-树状数组（Binary Indexed Tree，BIT）用数组形式表示。它其实仍然是一个数组，并且与 sum 数组类似，是一个用来记录和的数组，只不过它存放的不是前 i 个整数之和，而是在 <mark>i 号位之前（含i号位）lowbit(i) 个整数之和</mark>。树状数组的大小等于输入数组的大小，记为n。在下面的代码中，为了便于实现，使用n+1的大小。
-
-如下图 所示，数组A是原始数组，有 A[1]~ A[16]共 16个元素；数组 C是树状数组，其中 C[i]存放数组 A 中i号位之前 lowbit(i) 个元素之和。显然，<mark>C[i]的覆盖长度是 lowbit(i)（也可以理解成管辖范围）</mark>，它是2的幂次，即 1、2、4、8等。
-
-需要注意的是，树状数组仍旧是一个平坦的数组，画成树形是为了让存储的元素更容易观察。
-
-<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250320134426632.png" alt="image-20250320134426632" style="zoom: 67%;" />
-
-<center>图 树状数组定义图</center>
-
-
-
-```
-C[1] = A[1]  													(长度为 lowbit(1) = 1) 
-C[2] = A[1] + A[2]  									(长度为 lowbit(2) = 2) 
-C[3] = A[3]  													(长度为 lowbit(3) = 1) 
-C[4] = A[1] + A[2] + A[3] + A[4]  		(长度为 lowbit(4) = 4) 
-C[5] = A[5]  													(长度为 lowbit(5) = 1) 
-C[6] = A[5] + A[6]  									(长度为 lowbit(6) = 2) 
-C[7] = A[7]  													(长度为 lowbit(7) = 1) 
-C[8] = A[1] + A[2] + A[3] + A[4] + A[5] + A[6] + A[7] + A[8]  (长度为 lowbit(8) = 8) 
-```
-
-<mark>树状数组的定义非常重要，特别是“C[i]的覆盖长度是 lowbit(i)”这点；另外，树状数组的下标必须从1开始</mark>。接下来思考一下，在这样的定义下，
+树状数组的定义非常重要，特别是“C[i]的覆盖长度是 lowbit(i)”这点；另外，树状数组的下标必须从1开始</mark>。接下来思考一下，在这样的定义下，
 怎样解决下面两个问题：
 
 ① 设计函数 get_sum(x)，返回前x个数之和 A[1]+...+ A[x]。
@@ -1596,7 +1936,7 @@ def bit_update(BIT, n, i, v):
 
 
 
-### **实现** 
+**实现** 
 
 首先将BIT[]中的所有值初始化为0。然后对所有的索引调用bit_update()函数。
 

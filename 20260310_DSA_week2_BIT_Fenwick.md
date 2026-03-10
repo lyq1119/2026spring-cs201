@@ -497,8 +497,8 @@ class Solution:
             return False
         
         # seen 使用 bytearray 充当布尔数组，速度比 list 快，占用空间也很小
-        seen = bytearray(req)
-        seen = [0]*req
+        seen = bytearray(req) # 这两行可以注释掉一个
+        #seen = [0]*req
         
         # 初始化前 k-1 个字符组成的数值
         num = int(s[:k-1], 2) if k > 1 else 0

@@ -87,7 +87,7 @@ bit manipulation, https://leetcode.cn/problems/sort-integers-by-the-number-of-1-
 
 
 
-```
+```python
 class Solution:
     def sortByBits(self, arr: List[int]) -> List[int]:
         arr.sort(key = lambda x: (x.bit_count(), x))

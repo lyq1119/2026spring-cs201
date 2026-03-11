@@ -1,6 +1,6 @@
-#  Week2 虚拟机，Shell&本地大语言模型
+#  Week3 虚拟机，Shell&本地大语言模型
 
-*Updated 2026-03-10 14:18 GMT+8*  
+*Updated 2026-03-11 14:18 GMT+8*  
  *Compiled by Hongfei Yan (2025 Fall)*    
 
 https://github.com/GMyhf/2026spring-cs201/

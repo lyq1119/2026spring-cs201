@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-03-11 12:31 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-03-12 12:31 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -14,7 +14,9 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| 0314 | 20018:蚂蚁王国的越野跑  | <mark>merge sort</mark>, <mark>binary indexed tree</mark>, <mark>binary search</mark>    | Medium2  | http://cs101.openjudge.cn/practice/20018/          |
+| 4~5 | 3600.升级后最大生成树稳定性    | <mark>binary search</mark>, <mark>minimum spanning tree</mark> | Tough | https://leetcode.cn/problems/maximize-spanning-tree-stability-with-upgrades/          |
+|  |       |       | Medium |          |
+| 0314 | 20018:蚂蚁王国的越野跑  | <mark>merge sort</mark>, <mark>binary indexed tree</mark> | Medium2  | http://cs101.openjudge.cn/practice/20018/          |
 |  |       |       | Medium |          |
 | 0313 | 30201: 旅行售货商问题  | <mark>bitmask dp</mark>  | Tough | http://cs101.openjudge.cn/practice/30201/       |
 |  |       |       | Medium |          |

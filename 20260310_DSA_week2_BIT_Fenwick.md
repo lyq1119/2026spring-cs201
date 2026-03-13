@@ -5,9 +5,9 @@
 
 
 
-知识点：位运算（判断2的幂、lowbit、状态压缩），前缀和，树状数组，离散化，bisect_left，归并排序
+知识点：位运算（判断2的幂、lowbit、状态压缩），前缀和，树状数组，离散化，bisect_left，归并排序，
 
-https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt
+树状数组更新的正确性证明，python操作时间复杂度，https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt
 
 ![image-20240301091407727](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20240301091407727.png)
 
@@ -23,7 +23,7 @@ https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt
 
 
 
-## bit_count, bit_length
+## 1.1 bit_count, bit_length
 
 ### E1356.根据数字二进制下 1 的数目排序（assign#1）
 
@@ -151,9 +151,9 @@ class Solution:
 
 
 
+## 1.2 位运算编程题目
 
-
-## E868.二进制间距（assign#2）
+### E868.二进制间距（assign#2）
 
 bit manipulation, https://leetcode.cn/problems/binary-gap/
 
@@ -280,7 +280,7 @@ class Solution:
 
 
 
-## E190.颠倒二进制位（assign#1）
+### E190.颠倒二进制位（assign#1）
 
 bit manipulation, https://leetcode.cn/problems/reverse-bits/
 
@@ -349,7 +349,7 @@ class Solution:
 
 
 
-## E30571:十进制整数的反码（assign#3 暨月考）
+### E30571:十进制整数的反码（assign#3 暨月考）
 
 bit manipulation, http://cs101.openjudge.cn/practice/E30571/
 
@@ -421,7 +421,7 @@ if __name__ == "__main__":
 
 
 
-## M1680.连接连续二进制数字（assign#2）
+### M1680.连接连续二进制数字（assign#2）
 
 bit manipulation, https://leetcode.cn/problems/concatenation-of-consecutive-binary-numbers/
 
@@ -503,7 +503,7 @@ class Solution:
 
 
 
-## M1461.检查一个字符串是否包含所有长度为 K 的二进制子串（assign#2）
+### M1461.检查一个字符串是否包含所有长度为 K 的二进制子串（assign#2）
 
 bit manipulation, https://leetcode.cn/problems/check-if-a-string-contains-all-binary-codes-of-size-k/
 
@@ -600,7 +600,7 @@ class Solution:
 
 
 
-## T30201: 旅行售货商问题
+### T30201: 旅行售货商问题
 
 bitmask dp, http://cs101.openjudge.cn/practice/30201/
 
@@ -904,7 +904,9 @@ if __name__ == '__main__':
 
 ------
 
-## E303.区域和检索 - 数组不可变
+## 2.1 编程题目
+
+### E303.区域和检索 - 数组不可变
 
 prefix sum, https://leetcode.cn/problems/range-sum-query-immutable/
 
@@ -1134,7 +1136,7 @@ list(accumulate(nums, operator.mul))
 
 
 
-## 练习M304.二维区域和检索 - 矩阵不可变（assign#2）
+### 练习M304.二维区域和检索 - 矩阵不可变（assign#2）
 
 prefix sum, https://leetcode.cn/problems/range-sum-query-2d-immutable/
 
@@ -1316,7 +1318,7 @@ class NumMatrix:
 
 
 
-## lowbit 运算
+## 3.1 lowbit 运算
 
 二进制中一个经典应用是 lowbit 运算，即 `lowbit(x) = x & (-x)`。
 
@@ -1348,7 +1350,7 @@ class NumMatrix:
 
 
 
-## BIt表示方式
+## 3.2 表示方式
 
 树状数组（Binary Indexed Tree，BIT）用数组形式表示。它其实仍然是一个数组，并且与 sum 数组类似，是一个用来记录和的数组，只不过它存放的不是前 i 个整数之和，而是在 <mark>i 号位之前（含i号位）lowbit(i) 个整数之和</mark>。树状数组的大小等于输入数组的大小，记为n。在下面的代码中，为了便于实现，使用n+1的大小。
 
@@ -1377,91 +1379,7 @@ C[8] = A[1] + A[2] + A[3] + A[4] + A[5] + A[6] + A[7] + A[8]  (长度为 lowbit(
 
 
 
-## 示例M307.区域和检索 - 数组可修改
-
-binary indexed tree, segment tree, https://leetcode.cn/problems/range-sum-query-mutable/
-
-给你一个数组 `nums` ，请你完成两类查询。
-
-1. 其中一类查询要求 **更新** 数组 `nums` 下标对应的值
-2. 另一类查询要求返回数组 `nums` 中索引 `left` 和索引 `right` 之间（ **包含** ）的nums元素的 **和** ，其中 `left <= right`
-
-实现 `NumArray` 类：
-
-- `NumArray(int[] nums)` 用整数数组 `nums` 初始化对象
-- `void update(int index, int val)` 将 `nums[index]` 的值 **更新** 为 `val`
-- `int sumRange(int left, int right)` 返回数组 `nums` 中索引 `left` 和索引 `right` 之间（ **包含** ）的nums元素的 **和** （即，`nums[left] + nums[left + 1], ..., nums[right]`）
-
- 
-
-**示例 1：**
-
-```
-输入：
-["NumArray", "sumRange", "update", "sumRange"]
-[[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
-输出：
-[null, 9, null, 8]
-
-解释：
-NumArray numArray = new NumArray([1, 3, 5]);
-numArray.sumRange(0, 2); // 返回 1 + 3 + 5 = 9
-numArray.update(1, 2);   // nums = [1,2,5]
-numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
-```
-
- 
-
-**提示：**
-
-- `1 <= nums.length <= 3 * 10^4`
-- `-100 <= nums[i] <= 100`
-- `0 <= index < nums.length`
-- `-100 <= val <= 100`
-- `0 <= left <= right < nums.length`
-- 调用 `update` 和 `sumRange` 方法次数不大于 `3 * 10^4` 
-
-
-
-```python
-lass NumArray:
-
-    def __init__(self, nums: List[int]):
-        
-
-    def update(self, index: int, val: int) -> None:
-        
-
-    def sumRange(self, left: int, right: int) -> int:
-        
-
-
-# Your NumArray object will be instantiated and called as such:
-# obj = NumArray(nums)
-# obj.update(index,val)
-# param_2 = obj.sumRange(left,right)
-```
-
-
-
-> 灵神讲的很清楚。视频讲解的链接，“带你发明树状数组！”
->https://leetcode.cn/problems/range-sum-query-mutable/solutions/2524481/dai-ni-fa-ming-shu-zhuang-shu-zu-fu-shu-lyfll/
-> 
-> >把一个正整数拆分，按照2的幂，从右往左拆分。拆分出的关键区间个数，是二进制数中1的个数是。位运算技巧。
->
-> 
->
-> ![image-20260308021201663](https://raw.githubusercontent.com/GMyhf/img/main/img/202603080212764.png)
->
-> 
->
-> 关于树状数组，重在理解其原理与应用，掌握其核心思想即可，无需深究形式化证明。这一数据结构设计精妙，其中对位运算的巧妙运用堪称点睛之笔，充分体现了算法的优雅与高效。值得一提的是，在利用 lowbit 实现前缀和查询时，常见的写法 `i -= i & -i` 可以等价地改写为 `i &= i - 1`。两者语义完全相同，但后者更优——不仅代码更简洁，还少了一次算术运算，效率略高。
->
-> 它的核心思想是将数组按特定规则分组进行高效检索：利用整数的二进制表示，将其按 2 的幂次进行划分，从而实现对前缀信息的快速维护与查询。这一设计仅需 O(log n) 的时间复杂度，构思巧妙，堪称天才之作。
-
-
-
-**Q: 树状数组证明？**
+## 3.3 树状数组更新的正确性证明
 
 > 既然已经掌握了“减法查，加法更”的直觉，那么证明其实就是把这个直觉背后的**二进制逻辑**写得严谨一点。
 >
@@ -1573,6 +1491,94 @@ lass NumArray:
 >
 > 证明其实就是把“为什么这个指针跳法是合理的”解释了一遍。
 
+
+
+## 3.4 编程题目
+
+### 示例M307.区域和检索 - 数组可修改
+
+binary indexed tree, segment tree, https://leetcode.cn/problems/range-sum-query-mutable/
+
+给你一个数组 `nums` ，请你完成两类查询。
+
+1. 其中一类查询要求 **更新** 数组 `nums` 下标对应的值
+2. 另一类查询要求返回数组 `nums` 中索引 `left` 和索引 `right` 之间（ **包含** ）的nums元素的 **和** ，其中 `left <= right`
+
+实现 `NumArray` 类：
+
+- `NumArray(int[] nums)` 用整数数组 `nums` 初始化对象
+- `void update(int index, int val)` 将 `nums[index]` 的值 **更新** 为 `val`
+- `int sumRange(int left, int right)` 返回数组 `nums` 中索引 `left` 和索引 `right` 之间（ **包含** ）的nums元素的 **和** （即，`nums[left] + nums[left + 1], ..., nums[right]`）
+
+ 
+
+**示例 1：**
+
+```
+输入：
+["NumArray", "sumRange", "update", "sumRange"]
+[[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
+输出：
+[null, 9, null, 8]
+
+解释：
+NumArray numArray = new NumArray([1, 3, 5]);
+numArray.sumRange(0, 2); // 返回 1 + 3 + 5 = 9
+numArray.update(1, 2);   // nums = [1,2,5]
+numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
+```
+
+ 
+
+**提示：**
+
+- `1 <= nums.length <= 3 * 10^4`
+- `-100 <= nums[i] <= 100`
+- `0 <= index < nums.length`
+- `-100 <= val <= 100`
+- `0 <= left <= right < nums.length`
+- 调用 `update` 和 `sumRange` 方法次数不大于 `3 * 10^4` 
+
+
+
+```python
+lass NumArray:
+
+    def __init__(self, nums: List[int]):
+        
+
+    def update(self, index: int, val: int) -> None:
+        
+
+    def sumRange(self, left: int, right: int) -> int:
+        
+
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# obj.update(index,val)
+# param_2 = obj.sumRange(left,right)
+```
+
+
+
+> 灵神讲的很清楚。视频讲解的链接，“带你发明树状数组！”
+>https://leetcode.cn/problems/range-sum-query-mutable/solutions/2524481/dai-ni-fa-ming-shu-zhuang-shu-zu-fu-shu-lyfll/
+> 
+> >把一个正整数拆分，按照2的幂，从右往左拆分。拆分出的关键区间个数，是二进制数中1的个数是。位运算技巧。
+>
+> 
+>
+> ![image-20260308021201663](https://raw.githubusercontent.com/GMyhf/img/main/img/202603080212764.png)
+>
+> 
+>
+> 关于树状数组，重在理解其原理与应用，掌握其核心思想即可，无需深究形式化证明。这一数据结构设计精妙，其中对位运算的巧妙运用堪称点睛之笔，充分体现了算法的优雅与高效。值得一提的是，在利用 lowbit 实现前缀和查询时，常见的写法 `i -= i & -i` 可以等价地改写为 `i &= i - 1`。两者语义完全相同，但后者更优——不仅代码更简洁，还少了一次算术运算，效率略高。
+>
+> 它的核心思想是将数组按特定规则分组进行高效检索：利用整数的二进制表示，将其按 2 的幂次进行划分，从而实现对前缀信息的快速维护与查询。这一设计仅需 O(log n) 的时间复杂度，构思巧妙，堪称天才之作。
+
+
+
 这个问题要求实现一个支持“单点修改”和“区域检索”的数据结构。
 
 对于此类问题，普通的数组实现中：
@@ -1636,7 +1642,7 @@ class NumArray:
 
 
 
-## 练习M20018:蚂蚁王国的越野跑
+### 练习M20018:蚂蚁王国的越野跑
 
 merge sort, binary indexed tree, binary search, , http://cs101.openjudge.cn/practice/20018/
 
@@ -1706,7 +1712,7 @@ long long，有符号 64位整数，所占8个字节(Byte)
 
 因此需要统计：`i < j` 且 `v[i] < v[j]` 的对数。
 
-### 直觉解（<mark>bisect</mark>）
+#### 直觉解（<mark>bisect</mark>）
 
 > 复杂度：O(N^2)**
 >
@@ -1750,7 +1756,7 @@ long long，有符号 64位整数，所占8个字节(Byte)
 
 
 
-### 分治解（归并统计）
+#### 分治解（归并统计）
 
 而 **归并排序统计逆序对**通常统计的是：`i < j` 且 `v[i] > v[j]`
 
@@ -1854,7 +1860,7 @@ v[i] < v[j]
 
 
 
-### 数据结构解（BIT）
+#### 数据结构解（BIT）
 
 下面给出 **BIT（树状数组）版本**。这个题其实非常适合讲 **树状数组统计顺序对**。
 
@@ -1968,19 +1974,19 @@ print(ans)
 
 
 
-## 练习M30178:数字华容道（Easy Version）（assign#2）
+### 练习M30178:数字华容道（Easy Version）（assign#2）
 
 merge sort, binary indexed tree, http://cs101.openjudge.cn/practice/30178/
 
 
 
-## 练习T27018: 康托展开
+### 练习T27018: 康托展开
 
 binary indexed tree, http://cs101.openjudge.cn/practice/27018/
 
 
 
-## 练习T27093: 排队又来了
+### 练习T27093: 排队又来了
 
 binary indexed tree, http://cs101.openjudge.cn/practice/27093/
 
@@ -1994,7 +2000,9 @@ binary indexed tree, http://cs101.openjudge.cn/practice/27093/
 
 
 
-## 练习M02299: Ultra-QuickSort（assign#3 暨月考）
+## 4.1 编程题目
+
+### 练习M02299: Ultra-QuickSort（assign#3 暨月考）
 
 merge sort, http://cs101.openjudge.cn/practice/02299/
 
@@ -2041,13 +2049,11 @@ Waterloo local 2005.02.05
 
 
 
-## 练习M20018:蚂蚁王国的越野跑
+### 练习M20018:蚂蚁王国的越野跑
 
 merge sort, binary indexed tree, binary search,  http://cs101.openjudge.cn/practice/20018/
 
-代码放在上面 树状数组 中，即三种解法之一的归并排序求逆序数。
-
-
+代码放在3.4部分树状数组的编程题目中，即三种解法之一的归并排序求逆序数。
 
 
 
@@ -2059,7 +2065,7 @@ merge sort, binary indexed tree, binary search,  http://cs101.openjudge.cn/pract
 
 取自《算法笔记》 胡凡、曾磊. 2016。
 
-树状数组的定义非常重要，特别是“C[i]的覆盖长度是 lowbit(i)”这点；另外，树状数组的下标必须从1开始</mark>。接下来思考一下，在这样的定义下，
+树状数组的定义非常重要，特别是“C[i]的覆盖长度是 lowbit(i)”这点；另外，<mark>树状数组的下标必须从1开始</mark>。接下来思考一下，在这样的定义下，
 怎样解决下面两个问题：
 
 ① 设计函数 get_sum(x)，返回前x个数之和 A[1]+...+ A[x]。

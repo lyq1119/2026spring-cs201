@@ -1,6 +1,6 @@
 # Week2 树状数组（Binary Indexed Tree）
 
-*Updated 2026-03-10 21:56 GMT+8*
+*Updated 2026-03-13 09:55 GMT+8*
  *Compiled by Hongfei Yan (2025 Spring)*
 
 
@@ -346,6 +346,78 @@ class Solution:
 - 每次取 `n` 的最低位（`n & 1`），放到 `res` 的末尾。
 - `res` 左移腾出位置，`n` 右移取出下一位。
 - 循环 32 次确保处理全部位。
+
+
+
+## E30571:十进制整数的反码（assign#3 暨月考）
+
+bit manipulation, http://cs101.openjudge.cn/practice/E30571/
+
+每个非负整数 `N` 都有其二进制表示。例如， `5` 可以被表示为二进制 `"101"`，`11` 可以用二进制 `"1011"` 表示，依此类推。注意，除 `N = 0` 外，任何二进制表示中都不含前导零。
+
+二进制的反码表示是将每个 `1` 改为 `0` 且每个 `0` 变为 `1`。例如，二进制数 `"101"` 的二进制反码为 `"010"`。
+
+给你一个十进制数 `N`，请你返回其二进制表示的反码所对应的十进制整数。
+
+输入
+
+非负整数N，0 <= N < 10^9
+
+输出
+
+二进制表示的反码所对应的十进制整数
+
+样例输入
+
+```
+sample1 input: 
+5
+
+sample1 output:
+2
+
+解释：5 的二进制表示为 "101"，其二进制反码为 "010"，也就是十进制中的 2 。
+```
+
+样例输出
+
+```
+sample2 input:
+10
+
+sample2 output:
+5
+
+解释：10 的二进制表示为 "1010"，其二进制反码为 "0101"，也就是十进制中的 5 。
+```
+
+提示
+
+bit manipulation
+
+来源
+
+yan, https://leetcode.cn/problems/complement-of-base-10-integer/
+
+
+
+```python
+class Solution:
+    def bitwiseComplement(self, n: int) -> int:
+        if n == 0:
+            return 1
+
+        # n.bit_length() 返回 n 的二进制有效位数
+        mask = (1 << n.bit_length()) - 1
+        return mask ^ n  # 或者 return mask - n
+
+if __name__ == "__main__":
+    sol = Solution()
+    n = int(input())
+    print(sol.bitwiseComplement(n))
+```
+
+
 
 
 
@@ -1922,7 +1994,7 @@ binary indexed tree, http://cs101.openjudge.cn/practice/27093/
 
 
 
-## 练习M02299: Ultra-QuickSort
+## 练习M02299: Ultra-QuickSort（assign#3 暨月考）
 
 merge sort, http://cs101.openjudge.cn/practice/02299/
 

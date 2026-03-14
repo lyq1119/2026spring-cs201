@@ -18,7 +18,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
 | 0316 |       |       | Medium |          |
-| 0316 |       |       | Medium |          |
+| 0316 | 1415.长度为 n 的开心字符串中字典序第 k 小的字符串 | math, backtracking | Medium | https://leetcode.cn/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n/          |
 | 0315 | 78.子集      | backtracking      | Medium | https://leetcode.cn/problems/subsets/         |
 | 0315 | 46.全排列    | backtracking      | Medium | https://leetcode.cn/problems/permutations/          |
 | 0314 | 20018:蚂蚁王国的越野跑  | <mark>merge sort</mark>, <mark>binary indexed tree</mark> | Medium2  | http://cs101.openjudge.cn/practice/20018/          |

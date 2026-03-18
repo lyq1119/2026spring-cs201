@@ -380,6 +380,52 @@ print(is_repeated_pattern("ababab"))  # True
 
 
 
+> KMP的原理是当前字符不匹配时，不放弃前面匹配好的结果。
+>
+> 因为记录了最长前缀后缀，所以对于一段与主串匹配好的后缀，前面一定有个完全相同的前缀。
+>
+> 下次尝试时,假定主串不移动，将模式串整体右移，将前缀放在后缀的位置，这样就能使匹配更加高效。
+>
+> KMP其实只有这一小段代码，与主串匹配的代码其实完全同理，只不过被匹配的对象不是自身而是主串。
+>
+> ```python
+> n = len(pattern)
+>     lps = [0] * n
+>     length = 0
+>     for i in range(1, n): 
+>         while length > 0 and pattern[i] != pattern[length]:
+>             length = lps[length - 1]
+>         if pattern[i] == pattern[length]:
+>             length += 1
+>         lps[i] = length
+> ```
+>
+> KMP的拓展
+>
+> 引理：最小循环节 假设一个字符串的长度为 L，其对应的 LPS 数组最后一位为 lps[L-1]。 若满足 
+>
+> L  % ( L − lps[L−1] ) == 0 且 lps[L-1] != 0 (若lps[L-1]==0说明字符串没有循环节)
+>
+> 则该字符串由一个长度为 L - lps[L-1] 的子串重复构成。该子串即为最小循环元，重复次数 K = L / d。
+>
+> 直观理解：ababababab
+>
+> ​		    ^^^^^^^^      前缀
+>
+> ​		        ^^^^^^^^  后缀      lps[L-1]=8
+>
+> ​	            ^^                   L-lps[L-1]=2
+>
+> ```python
+> d=n-lps[n-1]
+>     if n%d==0 and n!=d:
+>         return n//d
+>     else:
+>         return 1 #这两句本质上能合并，在此为了是区分字符串有或没有循环节的情况
+> ```
+>
+> 
+
 
 
 ## 1.7 编程题目

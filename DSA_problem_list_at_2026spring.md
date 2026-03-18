@@ -18,7 +18,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 | 0320 |       |       | Medium |          |
 | 0319 | 03129:魔兽世界之一：备战 | implementation | Medium | http://cs101.openjudge.cn/practice/03129/          |
-| 0319 |       |       | Medium |          |
+| 0319 | 2405.子字符串的最优划分  | greedy, bit manipulation | Medium | https://leetcode.cn/problems/optimal-partition-of-string/          |
 | 0318 | 5.最长回文串 | DP, Center Expansion, Manacher | Medium | https://leetcode.cn/problems/longest-palindromic-substring/          |
 | 0318 | 04093: 倒排索引查询 | Inverted Index | Medium | http://cs101.openjudge.cn/practice/04093/          |
 | 0317 | 02406: 字符串乘方   | KMP  | Tough | http://cs101.openjudge.cn/practice/02406/          |

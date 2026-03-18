@@ -1,6 +1,6 @@
 # Week2 树状数组（Binary Indexed Tree）
 
-*Updated 2026-03-14 23:22 GMT+8*
+*Updated 2026-03-18 10:34 GMT+8*
  *Compiled by Hongfei Yan (2025 Spring)*
 
 
@@ -1387,6 +1387,16 @@ class NumMatrix:
 ```
 
 
+
+### 练习M1878. 矩阵中最大的三个菱形和
+
+prefix sum, https://leetcode.cn/problems/get-biggest-three-rhombus-sums-in-a-grid/
+
+
+
+### 练习M3070.元素和小于等于 k 的子矩阵的数目
+
+prefix sum, https://leetcode.cn/problems/count-submatrices-with-top-left-element-and-sum-less-than-k/
 
 
 

@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-03-18 22:46 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-03-19 08:51 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -16,7 +16,9 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 4~5月 | 3600.升级后最大生成树稳定性    | <mark>binary search</mark>, <mark>minimum spanning tree</mark> | Tough | https://leetcode.cn/problems/maximize-spanning-tree-stability-with-upgrades/          |
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
+| 0321 |       |       | Medium |          |
 | 0320 |       |       | Medium |          |
+| 0320 | M3212.统计 X 和 Y 频数相等的子矩阵数量  | prefix sum  | Medium | https://leetcode.cn/problems/count-submatrices-with-equal-frequency-of-x-and-y/          |
 | 0319 | 03129:魔兽世界之一：备战 | implementation | Medium | http://cs101.openjudge.cn/practice/03129/          |
 | 0319 | 2405.子字符串的最优划分  | greedy, bit manipulation | Medium | https://leetcode.cn/problems/optimal-partition-of-string/          |
 | 0318 | 5.最长回文串 | DP, Center Expansion, Manacher | Medium | https://leetcode.cn/problems/longest-palindromic-substring/          |

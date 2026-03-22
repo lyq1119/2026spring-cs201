@@ -6,6 +6,8 @@
 
 
 >  **核心内容**: 复杂度分析 (Big-O)、基础排序、线性表 (List)、栈 (Stack)、队列 (Queue/Deque)
+>
+>  调度场算法 Shunting Yard 是重点。
 
 
 

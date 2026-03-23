@@ -1,4 +1,4 @@
-# Assignment #2: 位运算、前缀和、树状数组、归并排序 & 状态压缩
+# DSA Assignment #2: 位运算、前缀和、树状数组、归并排序 & 状态压缩
 
 *Updated 2026-03-10 11:00 GMT+8*
  *Compiled by <mark>同学的姓名、院系</mark> (2026 Spring)*

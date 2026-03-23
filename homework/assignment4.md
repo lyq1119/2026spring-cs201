@@ -70,7 +70,7 @@ recursion, linked list, https://leetcode.cn/problems/reverse-linked-list/
 
 ### M234.回文链表
 
-linked list, https://leetcode.cn/problems/palindrome-linked-list/
+linked list, two pointers, https://leetcode.cn/problems/palindrome-linked-list/
 
 <mark>请用快慢指针实现</mark> `O(1)` 空间复杂度。
 

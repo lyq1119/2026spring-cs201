@@ -96,8 +96,6 @@ linked list, two pointers, https://leetcode.cn/problems/palindrome-linked-list/
 
 stack, http://cs101.openjudge.cn/practice/24591/
 
-<mark>请用快慢指针实现</mark> `O(1)` 空间复杂度。
-
 思路：
 
 

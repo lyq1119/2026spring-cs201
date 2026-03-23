@@ -1,6 +1,6 @@
 # Week4 算法复杂度分析与线性结构
 
-*Updated 2026-03-22 14:21 GMT+8*  
+*Updated 2026-03-23 16:33 GMT+8*  
  *Compiled by Hongfei Yan (2025 Spring)*  
 
 
@@ -8,6 +8,14 @@
 >  **核心内容**: 复杂度分析 (Big-O)、基础排序、线性表 (List)、栈 (Stack)、队列 (Queue/Deque)
 >
 >  调度场算法 Shunting Yard 是重点。
+
+
+
+数据结构是在计算机中存储、组织数据的方式．小到变量、数组，大到线段树、平衡树，都是数据结构．
+
+程序运行离不开数据结构，不同的数据结构又各有优劣，能够处理的问题各不相同，而根据具体问题选取合适的数据结构，可以大大提升程序的效率．所以，学习各种各样的数据结构是很有必要的．
+
+> 数据结构部分简介，https://oi-wiki.org/ds/
 
 
 
@@ -2919,7 +2927,55 @@ http://dsbpython.openjudge.cn/2024allhw/004/
 
 # 4 栈 (Stack) - LIFO (后进先出)
 
-栈抽象数据类型通过以下结构和操作来定义。如上所述，栈是一种有序的项集合，其中项被添加到被称为“顶端”的一端，也从这一端移除。栈是按照后进先出（LIFO）的顺序排列的。下面给出了栈的操作。
+栈是常用的一种线性数据结构。栈的修改与访问是按照后进先出的原则进行的，因此栈通常被称为是后进先出（last in first out）表，简称 LIFO 表。
+
+## 4.1 实现栈
+
+### 1 使用数组来模拟栈
+
+```python
+st = [0] * N
+# 这里使用 st[0] 代表栈中元素数量，同时也是栈顶下标
+
+# 压栈 ：
+st[st[0] + 1] = var1
+st[0] = st[0] + 1
+# 取栈顶：
+u = st[st[0]]
+# 弹栈：注意越界问题, *st == 0 时不能继续弹出
+if st[0]:
+    st[0] = st[0] - 1
+# 清空栈
+st[0] = 0
+```
+
+
+
+### 2 使用 Python 中的 list 模拟栈
+
+```python
+st = [5, 1, 4]
+
+# 使用 append() 向栈顶添加元素
+st.append(2)
+st.append(3)
+# >>> st
+# [5, 1, 4, 2, 3]
+
+# 使用 pop 取出栈顶元素
+st.pop()
+# >>> st
+# [5, 1, 4, 2]
+
+# 使用 clear 清空栈
+st.clear()
+```
+
+
+
+### 3 用类实现栈
+
+栈抽象数据类型通过以下结构和操作来定义。下面给出了栈的操作。
 
 *   `push(item)`: 入栈
 *   `pop()`: 出栈并返回（修改栈）
@@ -2949,18 +3005,9 @@ Table 1: Sample Stack Operations
 
 
 
-
-
-## 4.1 Implementing a Stack in Python
-
 现在已经明确定义了栈作为一种抽象数据类型，接下来我们将注意力转向使用Python来实现栈。回想一下，当我们为抽象数据类型提供物理实现时，称这种实现为数据结构。
 
 在Python中，就像在任何面向对象编程语言中一样，实现诸如栈这样的抽象数据类型的首选方法是创建一个新类。栈操作被实现为方法。此外，为了实现栈（它是一个元素的集合），利用Python提供的简单而强大的基本集合是很合理的。我们将使用列表来实现。
-
-> Now that we have clearly defined the stack as an abstract data type we will turn our attention to using Python to implement the stack. Recall that when we give an abstract data type a physical implementation we refer to the implementation as a data structure.
->
-> As we described in Chapter 1, in Python, as in any object-oriented programming language, the implementation of choice for an abstract data type such as a stack is the creation of a new class. The stack operations are implemented as methods. Further, to implement a stack, which is a collection of elements, it makes sense to utilize the power and simplicity of the primitive collections provided by Python. We will use a list.
->
 
 ```mermaid
 classDiagram
@@ -3025,28 +3072,7 @@ True
 
 
 
-要求自己会用类实现Stack，但是实际编程时候，直接使用系统的list更好。
-
-```python
-#function rev_string(my_str) that uses a stack to reverse the characters in a string.
-def rev_string(my_str):
-    s = [] # Stack()
-    rev = []
-    for c in my_str:
-        s.append(c) # push(c)
-
-    #while not s.is_empty():
-    while s:
-        rev.append(s.pop())
-    return "".join(rev)
-
-test_string = "cutie"
-
-print(rev_string(test_string))
-
-# output: eituc
-    
-```
+<mark>要求自己会用类实现Stack，但是实际编程时候，直接使用list模拟栈更好。</mark>
 
 
 
@@ -4179,7 +4205,9 @@ dfs and similar, http://cs101.openjudge.cn/practice/02754
 
 # 5 队列 (Queue) - FIFO (先进先出)
 
-像栈一样，队列也是一种线性数据结构，它以先入先出（FIFO, First In First Out）的方式存储项目。在队列中，最早添加的项会最先被移除。队列的一个很好的<mark>例子是资源的消费者队列</mark>，其中最早来的消费者会被优先服务。这意味着，队列中的元素按照它们进入的顺序进行处理，确保了第一个进入队列的元素也是第一个从队列中出来的，体现了“先到先得”的原则。
+队列（queue）是一种具有「先进入队列的元素一定先出队列」性质的表。由于该性质，队列通常也被称为先进先出（first in first out）表，简称 FIFO 表．
+
+队列的一个很好的<mark>例子是资源的消费者队列</mark>，其中最早来的消费者会被优先服务。这意味着，队列中的元素按照它们进入的顺序进行处理，确保了第一个进入队列的元素也是第一个从队列中出来的，体现了“先到先得”的原则。
 
 > 队列在尾部 (Rear) 添加，从头部 (Front) 移除。
 
@@ -4640,11 +4668,38 @@ Average Wait  90.63 secs   0 tasks remaining.
 
 
 
-# 7. 双端队列 (Deque)
+## 5.3 双端队列 (Deque)
 
 双端队列（Double-ended Queue）允许在两端同时进行添加和删除。
 
 与栈和队列不同的是，双端队列的限制很少。双端队列是与队列类似的有序集合。它有一前、一后两端，元素在其中保持自己的位置。与队列不同的是，双端队列对在哪一端添加和移除元素没有任何限制。新元素既可以被添加到前端，也可以被添加到后端。同理，已有的元素也能从任意一端移除。
+
+
+
+### 1. 在 Python 中，双端队列的容器由 `collections.deque` 提供．
+
+示例如下：
+
+```python
+from collections import deque
+
+# 新建一个 deque，并初始化内容为 [1, 2, 3]
+queue = deque([1, 2, 3])
+
+# 在队尾插入元素 4
+queue.append(4)
+
+# 在队首插入元素 0
+queue.appendleft(0)
+
+# 访问队列
+# >>> queue
+# deque([0, 1, 2, 3, 4])
+```
+
+
+
+### 2. 用类实现双端队列
 
 The deque abstract data type is defined by the following structure and operations. A deque is structured, as described above, as an ordered collection of items where items are added and removed from either end, either front or rear. The deque operations are given below.
 
@@ -4675,7 +4730,7 @@ As an example, if we assume that `d` is a deque that has been created and is cur
 
 
 
-## **双端队列实现**
+
 
 ```python
 class Deque:
@@ -4725,7 +4780,7 @@ True
 
 
 
-## 示例05902: 双端队列
+### 示例05902: 双端队列
 
 http://cs101.openjudge.cn/practice/05902/
 
@@ -4796,7 +4851,7 @@ http://cs101.openjudge.cn/practice/05902/
 
 
 
-## 典型应用：回文检查
+### 典型应用：回文检查
 
 ```python
 from collections import deque
@@ -4812,7 +4867,7 @@ def pal_checker(a_string):
 
 
 
-### 示例04067: 回文数字（Palindrome Number）
+#### 示例04067: 回文数字（Palindrome Number）
 
 http://cs101.openjudge.cn/practice/04067/
 
@@ -4874,7 +4929,7 @@ http://cs101.openjudge.cn/practice/04067/
 
 
 
-## 示例04099: 队列和栈
+### 示例04099: 队列和栈
 
 http://cs101.openjudge.cn/practice/04099/
 

@@ -16,8 +16,10 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 4~5月 | 3600.升级后最大生成树稳定性    | <mark>binary search</mark>, <mark>minimum spanning tree</mark> | Tough | https://leetcode.cn/problems/maximize-spanning-tree-stability-with-upgrades/          |
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
+| 0325 |       |       | Medium |          |
+| 0325 | 206.反转链表  | recursion, linked list | Easy | https://leetcode.cn/problems/reverse-linked-list/          |
 | 0324 |       |       | Medium |          |
-| 0324 |       |       | Medium |          |
+| 0324 | 160.相交链表  | hash table, linked list, two pinters | Easy | https://leetcode.cn/problems/intersection-of-two-linked-lists/          |
 | 0323 | 1594.矩阵的最大非负积  | dp      | Medium | https://leetcode.cn/problems/maximum-non-negative-product-in-a-matrix/          |
 | 0323 | 1886.判断矩阵经轮转后是否一致     | matrix  | Easy | https://leetcode.cn/problems/determine-whether-matrix-can-be-obtained-by-rotation/          |
 | 0322 | 240.搜索二维矩阵II     | binary search    | Medium    | https://leetcode.cn/problems/search-a-2d-matrix-ii/      |

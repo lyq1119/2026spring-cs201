@@ -174,7 +174,7 @@ bfs, http://cs101.openjudge.cn/practice/29954
 
 ## 2. 学习总结和个人收获
 
-<mark>如果发现作业题目相对简单，有否寻找额外的练习题目，如“数算2025spring每日选做”、LeetCode、Codeforces、洛谷等网站上的题目。</mark>
+<mark>如果发现作业题目相对简单，有否寻找额外的练习题目，如“数算2026spring每日选做”、LeetCode、Codeforces、洛谷等网站上的题目。</mark>
 
 
 

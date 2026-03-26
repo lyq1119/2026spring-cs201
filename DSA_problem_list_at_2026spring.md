@@ -17,7 +17,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 4~5月 | 3600.升级后最大生成树稳定性    | <mark>binary search</mark>, <mark>minimum spanning tree</mark> | Tough | https://leetcode.cn/problems/maximize-spanning-tree-stability-with-upgrades/          |
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
-| 0326 | 02488: A Knight's Journey  | backtracking    | Touch  | http://cs101.openjudge.cn/practice/02488/      | 
+| 0326 | 02488: A Knight's Journey  | backtracking    | Tough  | http://cs101.openjudge.cn/practice/02488/      | 
 | 0326 | 141.环形链表    | hash table, linked list, two pointers   | Easy | https://leetcode.cn/problems/linked-list-cycle/          |
 | 0325 | 20140:今日化学论文 | stack    | Medium    | http://cs101.openjudge.cn/pctbook/M20140/ |
 | 0325 | 206.反转链表  | recursion, linked list | Easy | https://leetcode.cn/problems/reverse-linked-list/          |

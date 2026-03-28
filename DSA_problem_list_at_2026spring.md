@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-03-26 17:00 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-03-28 17:00 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -18,8 +18,10 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
 |  |       |       | Medium |          |
+| 0329 | 02815: 城堡问题     | bfs, dfs, bit manipulation    | Medium    | http://cs101.openjudge.cn/pctbook/M02815/      |
+| 0329 | 142.环形链表II  | hash table, linked list, two pointers   | Medium | https://leetcode.cn/problems/linked-list-cycle-ii/          |
 | 0328 | 37.解数独   | backtracking, set | Tough    | https://leetcode.cn/problems/sudoku-solver/      |
-|  |       |       | Medium |          |
+| 0328 | 19.删除链表的倒数第N个结点| linked list, tow pointers | Medium | https://leetcode.cn/problems/remove-nth-node-from-end-of-list/      |
 | 0327 | 3548.等和矩阵分割 II  | prefix sum | Tough | https://leetcode.cn/problems/equal-sum-grid-partition-ii/          |
 | 0327 | sy299:简单的计算器      | stack       | Tough | https://sunnywhy.com/sfbj/7/1/299          |
 | 0326 | 02488: A Knight's Journey  | backtracking    | Tough  | http://cs101.openjudge.cn/practice/02488/      | 

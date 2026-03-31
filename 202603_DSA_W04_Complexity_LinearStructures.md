@@ -1,6 +1,6 @@
-# Week4 算法复杂度分析与线性结构
+# Week4～5.5 算法复杂度分析与线性结构
 
-*Updated 2026-03-26 17:24 GMT+8*  
+*Updated 2026-03-31 14:12 GMT+8*  
  *Compiled by Hongfei Yan (2025 Spring)*  
 
 
@@ -3405,46 +3405,25 @@ http://cs101.openjudge.cn/practice/02734/
 
 ## 4.4 中序、前序和后序表达式
 
-当你写一个算术表达式，如 B * C 时，表达式的形式为你提供了可以正确解释它的信息。在这种情况下，我们知道变量 B 正在乘以变量 C，因为乘法操作符 * 出现在它们之间的表达式中。这种类型的表示法被称为**中缀**表示法，因为操作符位于它所操作的两个操作数*之间*。
+当你写一个算术表达式，如 `B * C` 时，表达式的形式为你提供了可以正确解释它的信息。在这种情况下，我们知道变量 B 正在乘以变量 C，因为乘法操作符 `*` 出现在它们之间的表达式中。这种类型的表示法被称为**中缀**表示法，因为操作符位于它所操作的两个操作数之间。
 
-考虑另一个中缀的例子，A + B * C。操作符 + 和 * 仍然出现在操作数之间，但现在有一个问题：它们各自作用于哪些操作数？是 + 作用于 A 和 B，还是 * 作用于 B 和 C？这个表达式似乎有歧义。
+考虑另一个中缀的例子，`A + B * C`。操作符 `+` 和 `*` 仍然出现在操作数之间，但现在有一个问题：它们各自作用于哪些操作数？是 `+` 作用于 A 和 B，还是 `*` 作用于 B 和 C？这个表达式似乎有歧义。
 
-实际上，你已经阅读和书写这类表达式很长时间了，并且它们并不会给你造成任何问题。原因是你了解关于操作符 + 和 * 的一些事情。每个操作符都有一个**优先级**级别。优先级较高的操作符先于优先级较低的操作符使用。唯一能改变该顺序的是括号的存在。对于算术操作符的优先级顺序将乘除放在加减之上。如果出现相同优先级的操作符，则按照从左到右的顺序或结合性来决定。
+实际上，你已经阅读和书写这类表达式很长时间了，并且它们并不会给你造成任何问题。原因是你了解关于操作符 `+` 和 `*` 的一些事情。每个操作符都有一个**优先级**级别。优先级较高的操作符先于优先级较低的操作符使用。唯一能改变该顺序的是括号的存在。对于算术操作符的优先级顺序将乘除放在加减之上。如果出现相同优先级的操作符，则按照从左到右的顺序或结合性来决定。
 
-让我们使用操作符优先级来解释令人困惑的表达式 A + B * C。首先对 B 和 C 进行乘法运算，然后将 A 加到那个结果上。(A + B) * C 将强制先执行 A 和 B 的加法运算，然后再进行乘法运算。在表达式 A + B + C 中，根据优先级（通过结合性），最左边的 + 会首先被执行。
+让我们使用操作符优先级来解释令人困惑的表达式 `A + B * C`。首先对 B 和 C 进行乘法运算，然后将 A 加到那个结果上。`(A + B) * C` 将强制先执行 A 和 B 的加法运算，然后再进行乘法运算。在表达式 `A + B + C` 中，根据优先级（通过结合性），最左边的 + 会首先被执行。
 
 尽管这一切对你来说可能是显而易见的，请记住计算机需要确切知道要执行什么操作以及它们的顺序。一种确保不会因操作顺序引起混淆的方式是创建所谓的**完全括号化**表达式。这种类型的表达式为每个操作符使用一对括号。括号规定了操作的顺序；没有歧义。也不需要记忆任何优先级规则。
 
-表达式 A + B * C + D 可以重写为 ((A + (B * C)) + D)，以显示首先进行乘法，随后是最左边的加法。A + B + C + D 可以写作 (((A + B) + C) + D)，因为加法操作从左向右结合。
+表达式 `A + B * C + D` 可以重写为 `((A + (B * C)) + D)`，以显示首先进行乘法，随后是最左边的加法。`A + B + C + D` 可以写作 `(((A + B) + C) + D)`，因为加法操作从左向右结合。
 
 还有两种其他非常重要的表达式格式，一开始可能并不明显。考虑中缀表达式 A + B。如果我们把操作符移到两个操作数之前会发生什么？生成的表达式将是 + A B。同样，我们可以把操作符移到最后。我们得到 A B +。这些看起来有点奇怪。
 
 操作符相对于操作数位置的这些变化创造了两种新的表达式格式，**前缀**和**后缀**。<mark>前缀表达式要求所有操作符都在其工作的两个操作数之前</mark>。而后缀则要求其操作符在其对应的操作数之后。更多的例子应该有助于更清晰地理解这一点。
 
-A + B * C 在前缀中会被写作 + A * B C。乘法操作符直接出现在操作数 B 和 C 之前，表示 * 的优先级高于 +。然后加法操作符出现在 A 和乘法的结果之前。
+`A + B * C` 在前缀中会被写作 `+ A * B C`。乘法操作符直接出现在操作数 B 和 C 之前，表示 * 的优先级高于 +。然后加法操作符出现在 A 和乘法的结果之前。
 
-在后缀中，表达式会是 A B C * +。再次，操作顺序被保留，因为 * 紧接在 B 和 C 之后出现，表明 * 有更高的优先级，随后是 +。虽然操作符移动了，现在要么出现在各自操作数之前，要么出现在之后，但<mark>操作数之间的相对顺序保持不变</mark>。
-
-> When you write an arithmetic expression such as B * C, the form of the expression provides you with information so that you can interpret it correctly. In this case we know that the variable B is being multiplied by the variable C since the multiplication operator * appears between them in the expression. This type of notation is referred to as **infix** since the operator is *in between* the two operands that it is working on.
->
-> Consider another infix example, A + B * C. The operators + and * still appear between the operands, but there is a problem. Which operands do they work on? Does the + work on A and B or does the * take B and C? The expression seems ambiguous.
->
-> In fact, you have been reading and writing these types of expressions for a long time and they do not cause you any problem. The reason for this is that you know something about the operators + and *. Each operator has a **precedence** level. Operators of higher precedence are used before operators of lower precedence. The only thing that can change that order is the presence of parentheses. The precedence order for arithmetic operators places multiplication and division above addition and subtraction. If two operators of equal precedence appear, then a left-to-right ordering or associativity is used.
->
-> Let’s interpret the troublesome expression A + B * C using operator precedence. B and C are multiplied first, and A is then added to that result. (A + B) * C would force the addition of A and B to be done first before the multiplication. In expression A + B + C, by precedence (via associativity), the leftmost + would be done first.
->
-> Although all this may be obvious to you, remember that computers need to know exactly what operators to perform and in what order. One way to write an expression that guarantees there will be no confusion with respect to the order of operations is to create what is called a **fully parenthesized** expression. This type of expression uses one pair of parentheses for each operator. The parentheses dictate the order of operations; there is no ambiguity. There is also no need to remember any precedence rules.
->
-> The expression A + B * C + D can be rewritten as ((A + (B * C)) + D) to show that the multiplication happens first, followed by the leftmost addition. A + B + C + D can be written as (((A + B) + C) + D) since the addition operations associate from left to right.
->
-> There are two other very important expression formats that may not seem obvious to you at first. Consider the infix expression A + B. What would happen if we moved the operator before the two operands? The resulting expression would be + A B. Likewise, we could move the operator to the end. We would get A B +. These look a bit strange.
->
-> These changes to the position of the operator with respect to the operands create two new expression formats, **prefix** and **postfix**. Prefix expression notation requires that all operators precede the two operands that they work on. Postfix, on the other hand, requires that its operators come after the corresponding operands. A few more examples should help to make this a bit clearer (see Table 2).
->
-> A + B * C would be written as + A * B C in prefix. The multiplication operator comes immediately before the operands B and C, denoting that * has precedence over +. The addition operator then appears before the A and the result of the multiplication.
->
-> In postfix, the expression would be A B C * +. Again, the order of operations is preserved since the * appears immediately after the B and the C, denoting that * has precedence, with + coming after. Although the operators moved and now appear either before or after their respective operands, the order of the operands stayed exactly the same relative to one another.
->
+在后缀中，表达式会是 `A B C * +`。再次，操作顺序被保留，因为 * 紧接在 B 和 C 之后出现，表明 * 有更高的优先级，随后是 +。虽然操作符移动了，现在要么出现在各自操作数之前，要么出现在之后，但<mark>操作数之间的相对顺序保持不变</mark>。
 
 Table 2: Exmples of Infix, Prefix, and Postfix
 
@@ -3453,16 +3432,9 @@ Table 2: Exmples of Infix, Prefix, and Postfix
 | A + B                | + A B                 | A B +                  |
 | A + B * C            | + A * B C             | A B C * +              |
 
-现在考虑中缀表达式 (A + B) * C。回想一下，在这种情况下，<mark>中缀</mark>要求使用括号以强制在乘法之前执行加法运算。然而，当我们将 A + B 写成前缀时，只需将加法操作符移到操作数之前，即 + A B。此操作的结果成为乘法的第一个操作数。然后将乘法操作符移到整个表达式的前面，得到 * + A B C。同样，在后缀表达式中，A B + 强制先进行加法运算。然后可以将乘法应用于该结果和剩余的操作数 C。因此，正确的后缀表达式是 A B + C *。
+现在考虑中缀表达式 `(A + B) * C`。回想一下，在这种情况下，<mark>中缀</mark>要求使用括号以强制在乘法之前执行加法运算。然而，当我们将 A + B 写成前缀时，只需将加法操作符移到操作数之前，即 `+ A B`。此操作的结果成为乘法的第一个操作数。然后将乘法操作符移到整个表达式的前面，得到 `* + A B C`。同样，在后缀表达式中，A B + 强制先进行加法运算。然后可以将乘法应用于该结果和剩余的操作数 C。因此，正确的后缀表达式是 `A B + C *`。
 
 再次考虑这三个表达式（见表3）。这里发生了一件非常重要的事情。括号去哪了？为什么我们在前缀和后缀中不需要它们？答案是，<mark>操作符相对于它们所操作的操作数不再有歧义</mark>。只有中缀表示法需要额外的符号。前缀和后缀表达式中的操作顺序完全由操作符的位置决定，而不受其他因素影响。在很多方面，这使得中缀成为最不理想的表示法。
-
-> Now consider the infix expression (A + B) * C. Recall that in this case, infix requires the parentheses to force the performance of the addition before the multiplication. However, when A + B was written in prefix, the addition operator was simply moved before the operands, + A B. The result of this operation becomes the first operand for the multiplication. The multiplication operator is moved in front of the entire expression, giving us * + A B C. Likewise, in postfix A B + forces the addition to happen first. The multiplication can be done to that result and the remaining operand C. The proper postfix expression is then A B + C *.
->
-> Consider these three expressions again (see Table 3). Something very important has happened. Where did the parentheses go? Why don’t we need them in prefix and postfix? The answer is that the operators are no longer ambiguous with respect to the operands that they work on. Only infix notation requires the additional symbols. The order of operations within prefix and postfix expressions is completely determined by the position of the operator and nothing else. In many ways, this makes infix the least desirable notation to use.
->
-
-
 
 Table 3: An Expression with Parentheses
 
@@ -3485,20 +3457,13 @@ Table 4: Additional Examples of Infix, Prefix and Postfix
 
 ### 1 Conversion of Infix Expressions to Prefix and Postfix
 
-到目前为止，我们使用了临时的方法在中缀表达式和等价的前缀及后缀表达式表示法之间进行转换。正如你可能预期的那样，存在算法方法可以执行这种转换，使得任何复杂度的表达式都能被正确地变换。
+到目前为止，我们使用了临时的方法在中缀表达式和等价的前缀及后缀表达式表示法之间进行转换。正如你可能预期的那样，存在算法可以执行这种转换，使得任何复杂度的表达式都能被正确地变换。
 
-我们将首先考虑的技术使用了之前讨论过的完全括号化表达式的概念。回想一下，A + B * C 可以写成 (A + (B * C)) 来明确显示乘法优先于加法。然而，仔细观察后你可以看到，<mark>每对括号也标明了一个操作数对的开始和结束</mark>，其中间是相应的操作符。
+我们将首先考虑的技术使用了之前讨论过的完全括号化表达式的概念。回想一下，`A + B * C` 可以写成 `(A + (B * C))` 来明确显示乘法优先于加法。然而，仔细观察后你可以看到，<mark>每对括号也标明了一个操作数对的开始和结束</mark>，其中间是相应的操作符。
 
 看看上面子表达式 (B * C) 中的右括号。<mark>如果我们把乘法符号移到该位置并移除匹配的左括号</mark>，得到 B C *，实际上我们就将子表达式转换为了后缀表示法。如果也将加法操作符移动到其对应的右括号位置，并移除匹配的左括号，就会得到完整的后缀表达式（见图6）。 
 
 通过这种方法，我们可以系统地将包含任意复杂度的中缀表达式转换为后缀形式，确保了转换过程的准确性和一致性，而无需依赖记忆操作符优先级规则。同样的原则也可应用于创建前缀表达式，只是操作符的位置相对于操作数有所不同。
-
-> So far, we have used ad hoc methods to convert between infix expressions and the equivalent prefix and postfix expression notations. As you might expect, there are algorithmic ways to perform the conversion that allow any expression of any complexity to be correctly transformed.
->
-> The first technique that we will consider uses the notion of a fully parenthesized expression that was discussed earlier. Recall that A + B * C can be written as (A + (B * C)) to show explicitly that the multiplication has precedence over the addition. On closer observation, however, you can see that each parenthesis pair also denotes the beginning and the end of an operand pair with the corresponding operator in the middle.
->
-> Look at the right parenthesis in the subexpression (B * C) above. If we were to move the multiplication symbol to that position and remove the matching left parenthesis, giving us B C *, we would in effect have converted the subexpression to postfix notation. If the addition operator were also moved to its corresponding right parenthesis position and the matching left parenthesis were removed, the complete postfix expression would result (see Figure 6).
->
 
 ![../_images/moveright.png](https://raw.githubusercontent.com/GMyhf/img/main/img/moveright.png)
 
@@ -3512,27 +3477,25 @@ If we do the same thing but instead of moving the symbol to the position of the 
 
 因此，为了将一个表达式（无论多么复杂）转换为前缀或后缀表示法，首先使用运算顺序完全加上括号。然后，<mark>根据你想要得到前缀还是后缀表示法，将括号内的操作符移动到左括号或右括号的位置</mark>。
 
-> So in order to convert an expression, no matter how complex, to either prefix or postfix notation, fully parenthesize the expression using the order of operations. Then <mark>move the enclosed operator to the position of either the left or the right parenthesis depending on whether you want prefix or postfix notation</mark>.
-
 Here is a more complex expression: (A + B) * C - (D - E) * (F + G). Figure 8 shows the conversion to postfix and prefix notations.
 
 ![../_images/complexmove.png](https://raw.githubusercontent.com/GMyhf/img/main/img/complexmove.png)
 
-<mark>Figure 8: Converting a Complex Expression to Prefix and Postfix Notations</mark>
+<center>Figure 8: Converting a Complex Expression to Prefix and Postfix Notations</center>
 
 
 
 ### 2 应用二：表达式转换 (调度场算法 Shunting Yard)
 
-我们需要开发一种算法，将**中缀表达式** (Infix) 转换为**后缀表达式** (Postfix/逆波兰式)。为此，我们将更仔细地观察转换过程。
+需要开发一种算法，将**中缀表达式** (Infix) 转换为**后缀表达式** (Postfix/逆波兰式)。为此，将更仔细地观察转换过程。
 
-再次考虑表达式 A + B * C。如上所示，其对应的后缀表达式是 A B C * +。我们已经注意到操作数 A、B 和 C 保持它们的相对位置不变。<mark>只有操作符改变了位置</mark>。让我们再次查看中缀表达式中的操作符。从左到右首先出现的操作符是 +。然而，在后缀表达式中，由于下一个操作符 * 的优先级高于加法，+ 被放在了最后。原始表达式中的操作符顺序在得到的后缀表达式中被反转了。
+再次考虑表达式 A + B * C。如上所示，其对应的后缀表达式是 A B C * +。已经注意到操作数 A、B 和 C 保持它们的相对位置不变。<mark>只有操作符改变了位置</mark>。让我们再次查看中缀表达式中的操作符。从左到右首先出现的操作符是 +。然而，在后缀表达式中，由于下一个操作符 * 的优先级高于加法，+ 被放在了最后。原始表达式中的操作符顺序在得到的后缀表达式中被反转了。
 
-当我们处理表达式时，由于相应的右操作数还未出现，操作符需要暂时存储在某处。此外，这些<mark>已保存的操作符的顺序可能需要根据它们的优先级进行反转</mark>。在这个例子中的加法和乘法就是这种情况。由于加法操作符出现在乘法操作符之前且优先级较低，它需要在乘法操作符之后出现。由于这种<mark>顺序的反转，使用栈来保存操作符</mark>直到需要它们为止是有意义的。
+当处理表达式时，由于相应的右操作数还未出现，操作符需要暂时存储在某处。此外，这些<mark>已保存的操作符的顺序可能需要根据它们的优先级进行反转</mark>。在这个例子中的加法和乘法就是这种情况。由于加法操作符出现在乘法操作符之前且优先级较低，它需要在乘法操作符之后出现。由于这种<mark>顺序的反转，使用栈来保存操作符</mark>直到需要它们为止是有意义的。
 
-那么对于 (A + B) * C 怎么办呢？回想一下，其对应的后缀表达式是 A B + C *。同样，从左到右处理这个中缀表达式，我们首先看到的是 +。在这种情况下，当我们看到 * 时，由于括号的作用，+ 已经被放置在结果表达式中，因为它对 * 具有优先权。现在我们可以开始<mark>了解转换算法的工作原理</mark>了。当我们看到一个左括号时，我们会将其保存以指示即将出现一个高优先级的操作符。那个操作符需要等待直到出现相应的右括号来标明它的位置（回忆完全括号化的方法）。当右括号出现时，操作符可以从栈中弹出。
+那么对于 `(A + B) * C` 怎么办呢？回想一下，其对应的后缀表达式是 `A B + C *`。同样，从左到右处理这个中缀表达式，首先看到的是 +。在这种情况下，当我们看到 * 时，由于括号的作用，+ 已经被放置在结果表达式中，因为它对 * 具有优先权。现在可以开始<mark>了解转换算法的工作原理</mark>了。当看到一个左括号时，会将其保存以指示即将出现一个高优先级的操作符。那个操作符需要等待直到出现相应的右括号来标明它的位置（回忆完全括号化的方法）。当右括号出现时，操作符可以从栈中弹出。
 
-当我们从左到右扫描中缀表达式时，我们将使用一个栈来保存操作符。这提供了我们在第一个例子中提到的反转。栈顶总是最近保存的操作符。每当我们<mark>读取一个新的操作符时，我们需要考虑该操作符与已经在栈上的操作符（如果有的话）相比，其优先级如何</mark>。
+当从左到右扫描中缀表达式时，将使用一个栈来保存操作符。这提供了在第一个例子中提到的反转。栈顶总是最近保存的操作符。每当<mark>读取一个新的操作符时，需要考虑该操作符与已经在栈上的操作符（如果有的话）相比，其优先级如何</mark>。
 
 假设中缀表达式是由空格分隔的标记字符串。操作符标记包括 *, /, + 和 -，以及左右括号 ( 和 )。操作数标记是单字符标识符 A, B, C 等等。遵循以下步骤可以产生按后缀顺序排列的标记字符串：
 
@@ -3574,7 +3537,6 @@ def infixToPostfix(infixexpr):
         if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
             postfixList.append(token)
         elif token == '(':
-            #opStack.push(token)
             opStack.append(token)
         elif token == ')':
             topToken = opStack.pop()
@@ -3582,13 +3544,10 @@ def infixToPostfix(infixexpr):
                 postfixList.append(topToken)
                 topToken = opStack.pop()
         else:
-            #while (not opStack.is_empty()) and (prec[opStack.peek()] >= prec[token]):
             while opStack and (prec[opStack[-1]] >= prec[token]):
                 postfixList.append(opStack.pop())
-            #opStack.push(token)
             opStack.append(token)
 
-    #while not opStack.is_empty():
     while opStack:
         postfixList.append(opStack.pop())
     return " ".join(postfixList)
@@ -3613,13 +3572,14 @@ A B C * +
 
 #### <mark>关于栈使用的重要原则</mark>
 
-【李冠黎 24工学院】
-
-1. **栈的基本用途是用于“等待”**。具体来说，当遇到一条指令，而这条指令的操作依赖于后续的指令时，可以选择将这条指令先入栈，“稍作等待”，直到遍历到后面部分了解到具体如何操作后再利用`pop`方法回过头来处理该指令。这是栈使用的总体原则。
-
-2. **栈与括号匹配的关系密切**。很多涉及栈的问题都涉及到括号匹配问题，其核心在于识别一对括号内所包含的内容。这时同样可以应用第一条原则。当我们遇到左括号时，由于不清楚它对应的右括号在哪里，所以先将其入栈。等到遇到右括号时，再回头找到匹配的左括号，并进行相应的处理。
-
-3. **理解栈相关问题时，研究给定示例非常重要**。在解决栈相关的问题之前，先大致研究一下给出的示例，分析答案和输入数据（或称“密文”）之间的关系非常有帮助。例如，在中序表达式转后序表达式的题目中，通过观察转换后的结果可以发现数字的顺序保持不变，而对于每一个运算单元，符号总是位于最后。这表明：数字不需要入栈，因为它们的操作不依赖于后续的指令，可以直接添加到结果中。相反，运算符需要入栈，因为我们尚未确定该运算符所属的运算单元将在何处结束。一旦根据某些条件判断出运算单元结束，就可以有序地将运算符从栈中弹出，并加入到结果中。
+> 【李冠黎 24工学院】
+>
+> 1. **栈的基本用途是用于“等待”**。具体来说，当遇到一条指令，而这条指令的操作依赖于后续的指令时，可以选择将这条指令先入栈，“稍作等待”，直到遍历到后面部分了解到具体如何操作后再利用`pop`方法回过头来处理该指令。这是栈使用的总体原则。
+>
+> 2. **栈与括号匹配的关系密切**。很多涉及栈的问题都涉及到括号匹配问题，其核心在于识别一对括号内所包含的内容。这时同样可以应用第一条原则。当遇到左括号时，由于不清楚它对应的右括号在哪里，所以先将其入栈。等到遇到右括号时，再回头找到匹配的左括号，并进行相应的处理。
+>
+> 3. **理解栈相关问题时，研究给定示例非常重要**。在解决栈相关的问题之前，先大致研究一下给出的示例，分析答案和输入数据（或称“密文”）之间的关系非常有帮助。例如，在中序表达式转后序表达式的题目中，通过观察转换后的结果可以发现数字的顺序保持不变，而对于每一个运算单元，符号总是位于最后。这表明：数字不需要入栈，因为它们的操作不依赖于后续的指令，可以直接添加到结果中。相反，运算符需要入栈，因为尚未确定该运算符所属的运算单元将在何处结束。一旦根据某些条件判断出运算单元结束，就可以有序地将运算符从栈中弹出，并加入到结果中。
+>
 
 
 
@@ -3896,6 +3856,10 @@ http://cs101.openjudge.cn/practice/24588/
 
 *   **回溯本质**：利用调用栈自动保存状态（递归）或手动使用栈进行迭代。
 *   **搜索策略**：逐行放置皇后，检查与已放置皇后的列、对角线是否冲突。冲突则“回滚”到上一行尝试下一个位置。
+
+
+
+八皇后，经典回溯题目。【oj02754八皇后_TA胡扬-哔哩哔哩】 https://b23.tv/G09CYZi
 
 
 
@@ -4262,7 +4226,7 @@ stack, greedy, http://cs101.openjudge.cn/practice/04137/
 
 
 
-### 练习27205: 护林员盖房子 加强版
+### 练习27205: 护林员盖房子有来了（数据加强版）
 
 monotonic stack, http://cs101.openjudge.cn/pctbook/T27205/
 

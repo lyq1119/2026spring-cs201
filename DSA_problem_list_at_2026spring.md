@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-03-31 12:22 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-04-01 12:22 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -18,6 +18,8 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
 |  |       |       | Medium |          |
+| 0401 | 2751.机器人碰撞 | stack     | Tough | https://leetcode.cn/problems/robot-collisions/          |
+| 0401 | 30339:愉悦的假期  | bfs     | Tough | http://cs101.openjudge.cn/practice/30339/         |
 | 0331 | 3474.字典序最小的生成字符串   | greedy, string | Tough | https://leetcode.cn/problems/lexicographically-smallest-generated-string/          |
 | 0331 | 27205:护林员盖房子又来了  | monotonic stack    | Tough | http://cs101.openjudge.cn/pctbook/T27205/          |
 | 0330 | 239.滑动窗口最大值   | sliding window, monotonic queue   | Tough | https://leetcode.cn/problems/sliding-window-maximum/          |

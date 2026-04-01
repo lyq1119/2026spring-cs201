@@ -70,8 +70,6 @@ implementation, http://cs101.openjudge.cn/practice/02092/
 
 binary search, http://cs101.openjudge.cn/practice/02774/
 
-<mark>请用快慢指针实现</mark> `O(1)` 空间复杂度。
-
 思路：
 
 

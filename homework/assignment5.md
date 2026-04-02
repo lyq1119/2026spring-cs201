@@ -134,7 +134,7 @@ stack, http://cs101.openjudge.cn/practice/M30637/
 
 ### T30102:完美交易窗口
 
-monotonic stack, http://cs101.openjudge.cn/practice/T30102/
+monotonic stack, binary search, http://cs101.openjudge.cn/practice/T30102/
 
 思路：
 

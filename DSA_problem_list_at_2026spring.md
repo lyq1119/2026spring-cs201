@@ -17,6 +17,8 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 4~5月 | 3600.升级后最大生成树稳定性    | <mark>binary search</mark>, <mark>minimum spanning tree</mark> | Tough | https://leetcode.cn/problems/maximize-spanning-tree-stability-with-upgrades/          |
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
+| 0404 | 3561.移除相邻字符     | stack    | Medium    | https://leetcode.cn/problems/resulting-string-after-adjacent-removals/      | 
+| 0404 | 2087.网格图中机器人回家的最小代价    | greedy       | Medium | https://leetcode.cn/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/          |
 | 0403 | 3661.可以被机器人摧毁的最大墙壁数目  | dp, binary search  | Tough  | https://leetcode.cn/problems/maximum-walls-destroyed-by-robots/          |
 | 0403 | 30637: 合法出栈序列pub   | stack, math  | Medium | http://cs101.openjudge.cn/practice/M30637/          |
 | 0402 | 30102:完美交易窗口  | monotonic stack, binary search | Tough | http://cs101.openjudge.cn/practice/T30102/          |

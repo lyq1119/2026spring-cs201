@@ -19,7 +19,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 |  |       |       | Medium |          |
 | 0405 | 101025.产生至少 K 个峰值的最少操作次数  | dp | Tough | https://leetcode.cn/problems/minimum-operations-to-achieve-at-least-k-peaks/          |
 | 0405 | 94. 二叉树的中序遍历 | dfs, stack       | Easy | https://leetcode.cn/problems/binary-tree-inorder-traversal/         |
-|  |       |       | trees begin |          |
+|  |       | trees begin |   |       |
 | 0404 | 3561.移除相邻字符     | stack    | Medium    | https://leetcode.cn/problems/resulting-string-after-adjacent-removals/      | 
 | 0404 | 2087.网格图中机器人回家的最小代价    | greedy       | Medium | https://leetcode.cn/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/          |
 | 0403 | 3661.可以被机器人摧毁的最大墙壁数目  | dp, binary search  | Tough  | https://leetcode.cn/problems/maximum-walls-destroyed-by-robots/          |

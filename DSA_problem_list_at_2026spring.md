@@ -18,7 +18,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
 | 0408 | 230.二叉搜索树中第K小的元素   | dfs, stack   | Medium | https://leetcode.cn/problems/kth-smallest-element-in-a-bst/          |
-|  |       |       | Medium |          |
+| 0408 | 27637:括号嵌套二叉树  | dfs, stack       | Medium | http://cs101.openjudge.cn/practice/27637          |
 | 0407 | 2069.模拟行走机器人 II   | implementation     | Medium | https://leetcode.cn/problems/walking-robot-simulation-ii/          |
 | 0407 | 226.翻转二叉树      | dfs       | Easy | https://leetcode.cn/problems/invert-binary-tree/          |
 | 0406 | 874.模拟行走机器人     | implementation   | Medium | https://leetcode.cn/problems/walking-robot-simulation/           |

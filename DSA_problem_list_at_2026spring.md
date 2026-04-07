@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-04-06 12:46 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-04-07 09:42 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -17,6 +17,8 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 4~5月 | 3600.升级后最大生成树稳定性    | <mark>binary search</mark>, <mark>minimum spanning tree</mark> | Tough | https://leetcode.cn/problems/maximize-spanning-tree-stability-with-upgrades/          |
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
+| 0407 | 2069.模拟行走机器人 II   | implementation     | Medium | https://leetcode.cn/problems/walking-robot-simulation-ii/          |
+| 0407 | 226.翻转二叉树      | dfs       | Easy | https://leetcode.cn/problems/invert-binary-tree/          |
 | 0406 | 874.模拟行走机器人     | implementation   | Medium | https://leetcode.cn/problems/walking-robot-simulation/           |
 | 0406 | 104.二叉树的最大深度   | dfs   | Easy | https://leetcode.cn/problems/maximum-depth-of-binary-tree/          |
 | 0405 | 101025.产生至少 K 个峰值的最少操作次数  | dp | Tough | https://leetcode.cn/problems/minimum-operations-to-achieve-at-least-k-peaks/          |

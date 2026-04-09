@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-04-08 18:12 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-04-09 17:11 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -18,7 +18,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
 | 0410 | 297.二叉树的序列化与反序列化      | dfs, bfs  | Medium | https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/          |
-| 0410 |       |       | Medium |          |
+| 0410 | 15265: Shell排序      | shell sorting      | Medium | http://cs101.openjudge.cn/practice/15265/          |
 | 0409 | 1843D. Apple Tree     | Combinatorics, dfs and similar, dp, math, trees     | 1200 | https://codeforces.com/problemset/problem/1843/D          |
 | 0409 | 01577:Falling Leaves | tree    | Medium    | http://cs101.openjudge.cn/practice/01577/     |
 | 0408 | 230.二叉搜索树中第K小的元素   | dfs, stack   | Medium | https://leetcode.cn/problems/kth-smallest-element-in-a-bst/          |

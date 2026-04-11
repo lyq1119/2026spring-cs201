@@ -17,6 +17,8 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 4~5月 | 3600.升级后最大生成树稳定性    | <mark>binary search</mark>, <mark>minimum spanning tree</mark> | Tough | https://leetcode.cn/problems/maximize-spanning-tree-stability-with-upgrades/          |
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
+| 0412 | 03720: 文本二叉树     | tree    | Medium    | http://cs101.openjudge.cn/practice/03720/      |
+| 0412 | 24637:宝藏二叉树     | tree dp    | Medium    | http://cs101.openjudge.cn/practice/24637/      |
 | 0411 | 529.扫雷游戏  | dfs, bfs      | Medium | https://leetcode.cn/problems/minesweeper/          |
 | 0411 | 580C. Kefa and Park  | dfs and similar, graphs, trees   | 1500 | https://codeforces.com/contest/580/problem/C           |
 | 0410 | 297.二叉树的序列化与反序列化      | dfs, bfs  | Medium | https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/          |

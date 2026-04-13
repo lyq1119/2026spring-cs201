@@ -18,7 +18,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 3~4月 | 3327.判断 DFS 字符串是否是回文串    | dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       |       | Medium |          |
 | 0414 | P3379 【模板】最近公共祖先（LCA） | LCA, binary lifting | Tough | https://www.luogu.com.cn/problem/P3379          |
-|  |       |       | Medium |          |
+| 0414 | P1352 没有上司的舞会   | tree dp  | Medium | https://www.luogu.com.cn/problem/P1352          |
 | 0413 | 124.二叉树中的最大路径和      | dfs, dp, binary tree      | Tough | https://leetcode.cn/problems/binary-tree-maximum-path-sum/          |
 | 0413 | 236.二叉树的最近公共祖先  | dfs, binary tree | Medium | https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/          |
 | 0412 | 03720: 文本二叉树     | tree    | Medium    | http://cs101.openjudge.cn/practice/03720/      |

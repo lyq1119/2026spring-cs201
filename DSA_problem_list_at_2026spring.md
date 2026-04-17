@@ -15,6 +15,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 |  |       |       | Medium |          |
+| 0420 | 3761.镜像对之间最小绝对距     | hash table  | Medium | https://leetcode.cn/problems/minimum-absolute-distance-between-mirror-pairs/          |
 | 0419 | 3600.升级后最大生成树稳定性    | <mark>binary search</mark>, <mark>minimum spanning tree</mark>, dsu | Tough | https://leetcode.cn/problems/maximize-spanning-tree-stability-with-upgrades/          |
 | 0418 | 3327.判断 DFS 字符串是否是回文串    | tree, dfs, manacher  | Tough | https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/          |
 |  |       | one problem per day       |  |          |

@@ -64,7 +64,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 0328 | 19.删除链表的倒数第N个结点| linked list, tow pointers | Medium | https://leetcode.cn/problems/remove-nth-node-from-end-of-list/      |
 | 0327 | 3548.等和矩阵分割 II  | prefix sum | Tough | https://leetcode.cn/problems/equal-sum-grid-partition-ii/          |
 | 0327 | sy299:简单的计算器      | stack       | Tough | https://sunnywhy.com/sfbj/7/1/299          |
-| 0326 | 02488: A Knight's Journey  | backtracking    | Tough  | http://cs101.openjudge.cn/practice/02488/      | 
+| 0326 | 02488: A Knight's Journey  | backtracking, greedy    | Tough  | http://cs101.openjudge.cn/practice/02488/      | 
 | 0326 | 141.环形链表    | hash table, linked list, two pointers   | Easy | https://leetcode.cn/problems/linked-list-cycle/          |
 | 0325 | 20140:今日化学论文 | stack    | Medium    | http://cs101.openjudge.cn/pctbook/M20140/ |
 | 0325 | 206.反转链表  | recursion, linked list | Easy | https://leetcode.cn/problems/reverse-linked-list/          |

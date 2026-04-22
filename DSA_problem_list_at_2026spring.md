@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-04-21 13:25 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-04-22 22:07 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -15,6 +15,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 |  |       |       | Medium |          |
+| 0422 | 2452.距离字典两次编辑以内的单词   | trie, brute force       | Medium | trie, brute force, https://leetcode.cn/problems/words-within-two-edits-of-dictionary/          |
 | 0421 | M1722.执行交换操作后的最小汉明距离      | dsu      | Medium | https://leetcode.cn/problems/minimize-hamming-distance-after-swap-operations/          |
 | 0420 | 3761.镜像对之间最小绝对距     | hash table  | Medium | https://leetcode.cn/problems/minimum-absolute-distance-between-mirror-pairs/          |
 | 0419 | 3600.升级后最大生成树稳定性    | <mark>binary search</mark>, <mark>minimum spanning tree</mark>, dsu | Tough | https://leetcode.cn/problems/maximize-spanning-tree-stability-with-upgrades/          |

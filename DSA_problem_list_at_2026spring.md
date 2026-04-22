@@ -15,6 +15,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 |  |       |       | Medium |          |
+| 0424 | 01611: The Suspects      | dsu       | Medium | http://cs101.openjudge.cn/practice/01611/          |
 | 0423 | 3331.修改后子树的大小      | dfs  | Medium | https://leetcode.cn/problems/find-subtree-sizes-after-changes/          |
 | 0422 | 2452.距离字典两次编辑以内的单词   | trie, brute force       | Medium | https://leetcode.cn/problems/words-within-two-edits-of-dictionary/          |
 | 0421 | M1722.执行交换操作后的最小汉明距离      | dsu      | Medium | https://leetcode.cn/problems/minimize-hamming-distance-after-swap-operations/          |

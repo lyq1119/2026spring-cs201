@@ -17,10 +17,14 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | todo | 29803: 穿越火线   | Dijkstra, binary search      | Tough | http://cs101.openjudge.cn/practice/29702/          |
 | todo | 29702:二叉的水管  | topological order       | Tough | http://cs101.openjudge.cn/practice/29702/          |
 | todo | 28050: 骑士周游   | backtracking, Warnsdorff  | Tought | http://cs101.openjudge.cn/practice/28050/          |
+| todo | 05442: 兔子与星空 | MST   | Medium    | http://cs101.openjudge.cn/practice/05442/      |
+| todo | 05443: 兔子与樱花 | dijkstra, Floyd-Warshall      | Medium | http://cs101.openjudge.cn/practice/05443/          |
+| todo | 09202: 舰队、海域出击！   | topological order    | Medium    | http://cs101.openjudge.cn/practice/09202/      |
+| todo | 01258: Agri-Net   | MST    | Medium    | http://cs101.openjudge.cn/practice/01258/      |
 |  |       |       | Medium |          |
 | 0425 | 07734: 虫子的生活  | dsu      | Medium | http://cs101.openjudge.cn/practice/07734/          |
 | 0424 | 01611: The Suspects      | dsu       | Medium | http://cs101.openjudge.cn/practice/01611/          |
-| 0423 | 3331.修改后子树的大小      | dfs  | Medium | https://leetcode.cn/problems/find-subtree-sizes-after-changes/          |
+| 0423 | 3331.修改后子树的大小      | dfs, backtracking  | Medium | https://leetcode.cn/problems/find-subtree-sizes-after-changes/          |
 | 0422 | 2452.距离字典两次编辑以内的单词   | trie, brute force       | Medium | https://leetcode.cn/problems/words-within-two-edits-of-dictionary/          |
 | 0421 | M1722.执行交换操作后的最小汉明距离      | dsu      | Medium | https://leetcode.cn/problems/minimize-hamming-distance-after-swap-operations/          |
 | 0420 | 3761.镜像对之间最小绝对距     | hash table  | Medium | https://leetcode.cn/problems/minimum-absolute-distance-between-mirror-pairs/          |

@@ -14,6 +14,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| todo | 30313: 0-W 最小生成树      | 补图连通块 + 缩点 Kruskal       | Toughm | http://cs101.openjudge.cn/practice/T30313          |
 | todo | 29803: 穿越火线   | Dijkstra, binary search      | Tough | http://cs101.openjudge.cn/practice/29702/          |
 | todo | 29702:二叉的水管  | topological order       | Tough | http://cs101.openjudge.cn/practice/29702/          |
 | todo | 28050: 骑士周游   | backtracking, Warnsdorff  | Tought | http://cs101.openjudge.cn/practice/28050/          |

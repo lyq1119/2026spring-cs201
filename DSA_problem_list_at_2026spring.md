@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-04-22 22:07 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-04-23 15:52 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -14,6 +14,8 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| todo | 29803: 穿越火线   | Dijkstra, binary search      | Tough | http://cs101.openjudge.cn/practice/29702/          |
+| todo | 29702:二叉的水管  | topological order       | Tough | http://cs101.openjudge.cn/practice/29702/          |
 |  |       |       | Medium |          |
 | 0425 | 07734: 虫子的生活  | dsu      | Medium | http://cs101.openjudge.cn/practice/07734/          |
 | 0424 | 01611: The Suspects      | dsu       | Medium | http://cs101.openjudge.cn/practice/01611/          |

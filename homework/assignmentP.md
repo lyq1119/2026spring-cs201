@@ -1,7 +1,7 @@
 # 数算B课程大作业说明及评分标准
 
 *Updated 2026-04-26 16:27 GMT+8*  
- *Compiled by Hongfei Yan (2026 spring)*  
+ *Compiled by Hongfei Yan & Jialin Wang(2026 spring)*  
 
 
 

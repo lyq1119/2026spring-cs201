@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-04-26 07:24 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-04-27 15:24 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -23,6 +23,8 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | todo | 09202: 舰队、海域出击！   | topological order    | Medium    | http://cs101.openjudge.cn/practice/09202/      |
 | todo | 01258: Agri-Net   | MST    | Medium    | http://cs101.openjudge.cn/practice/01258/      |
 |  |       |       | Medium |          |
+|      |      | -    | -    | graph and all kinds of tags begin  |
+| 0427 | M1391.检查网格中是否存在有效路径 | bfs      | Medium | https://leetcode.cn/problems/check-if-there-is-a-valid-path-in-a-grid/          |
 | 0426 | 3464.正方形上的点之间的最大距离  | geometry, binary search       | Tough | https://leetcode.cn/problems/maximize-the-distance-between-points-on-a-square/          |
 | 0425 | 07734: 虫子的生活  | dsu      | Medium | http://cs101.openjudge.cn/practice/07734/          |
 | 0424 | 01611: The Suspects      | dsu       | Medium | http://cs101.openjudge.cn/practice/01611/          |

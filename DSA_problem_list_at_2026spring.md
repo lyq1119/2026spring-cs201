@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-04-27 15:24 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-04-28 14:03 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -17,12 +17,13 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | todo | 30313: 0-W 最小生成树      | 补图连通块 + 缩点 Kruskal       | Toughm | http://cs101.openjudge.cn/practice/T30313          |
 | todo | 29803: 穿越火线   | Dijkstra, binary search      | Tough | http://cs101.openjudge.cn/practice/29702/          |
 | todo | 29702:二叉的水管  | topological order       | Tough | http://cs101.openjudge.cn/practice/29702/          |
-| todo | 28050: 骑士周游   | backtracking, Warnsdorff  | Tought | http://cs101.openjudge.cn/practice/28050/          |
 | todo | 05442: 兔子与星空 | MST   | Medium    | http://cs101.openjudge.cn/practice/05442/      |
 | todo | 05443: 兔子与樱花 | dijkstra, Floyd-Warshall      | Medium | http://cs101.openjudge.cn/practice/05443/          |
 | todo | 09202: 舰队、海域出击！   | topological order    | Medium    | http://cs101.openjudge.cn/practice/09202/      |
 | todo | 01258: Agri-Net   | MST    | Medium    | http://cs101.openjudge.cn/practice/01258/      |
 |  |       |       | Medium |          |
+| 0429 | 28050: 骑士周游   | backtracking, Warnsdorff  | Tought | http://cs101.openjudge.cn/practice/28050/          |
+| 0428 | 28046: 词梯      | bfs       | Medium | http://cs101.openjudge.cn/practice/28046/          |
 | 0427 | M1391.检查网格中是否存在有效路径 | bfs      | Medium | https://leetcode.cn/problems/check-if-there-is-a-valid-path-in-a-grid/          |
 |      |      | graph and all kinds of tags begin  | | |
 | 0426 | 3464.正方形上的点之间的最大距离  | geometry, binary search       | Tough | https://leetcode.cn/problems/maximize-the-distance-between-points-on-a-square/          |
@@ -76,7 +77,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 0330 | 2840.判断通过操作能否让字符串相等 II   | string, sorting  | Medium |  https://leetcode.cn/problems/check-if-strings-can-be-made-equal-with-operations-ii/        |
 | 0329 | 02815: 城堡问题     | bfs, dfs, bit manipulation    | Medium    | http://cs101.openjudge.cn/pctbook/M02815/      |
 | 0329 | 142.环形链表II  | hash table, linked list, two pointers   | Medium | https://leetcode.cn/problems/linked-list-cycle-ii/          |
-| 0328 | 37.解数独   | backtracking, set | Tough    | https://leetcode.cn/problems/sudoku-solver/      |
+| 0328 | 37.解数独   | backtracking, hash table | Tough    | https://leetcode.cn/problems/sudoku-solver/      |
 | 0328 | 19.删除链表的倒数第N个结点| linked list, tow pointers | Medium | https://leetcode.cn/problems/remove-nth-node-from-end-of-list/      |
 | 0327 | 3548.等和矩阵分割 II  | prefix sum | Tough | https://leetcode.cn/problems/equal-sum-grid-partition-ii/          |
 | 0327 | sy299:简单的计算器      | stack       | Tough | https://sunnywhy.com/sfbj/7/1/299          |

@@ -22,6 +22,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | todo | 09202: 舰队、海域出击！   | topological order    | Medium    | http://cs101.openjudge.cn/practice/09202/      |
 | todo | 01258: Agri-Net   | MST    | Medium    | http://cs101.openjudge.cn/practice/01258/      |
 |  |       |       | Medium |          |
+| 0430 | 28972:海拔      | Kruskal, binary+bfs, Dijkstra     | Tough | http://cs101.openjudge.cn/practice/28972          |
 | 0429 | 28050: 骑士周游   | backtracking, Warnsdorff  | Tought | http://cs101.openjudge.cn/practice/28050/          |
 | 0428 | 28046: 词梯      | bfs       | Medium | http://cs101.openjudge.cn/practice/28046/          |
 | 0427 | M1391.检查网格中是否存在有效路径 | bfs      | Medium | https://leetcode.cn/problems/check-if-there-is-a-valid-path-in-a-grid/          |

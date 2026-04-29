@@ -15,13 +15,13 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | todo | 30313: 0-W 最小生成树      | 补图连通块 + 缩点 Kruskal       | Toughm | http://cs101.openjudge.cn/practice/T30313          |
-| todo | 29803: 穿越火线   | Dijkstra, binary search      | Tough | http://cs101.openjudge.cn/practice/29903/          |
 | todo | 29702:二叉的水管  | topological order       | Tough | http://cs101.openjudge.cn/practice/29702/          |
 | todo | 05442: 兔子与星空 | MST   | Medium    | http://cs101.openjudge.cn/practice/05442/      |
 | todo | 05443: 兔子与樱花 | dijkstra, Floyd-Warshall      | Medium | http://cs101.openjudge.cn/practice/05443/          |
 | todo | 09202: 舰队、海域出击！   | topological order    | Medium    | http://cs101.openjudge.cn/practice/09202/      |
 | todo | 01258: Agri-Net   | MST    | Medium    | http://cs101.openjudge.cn/practice/01258/      |
 |  |       |       | Medium |          |
+| 0501 | 29803:穿越火线     | binary search + Dijkstra       | Tough | http://cs101.openjudge.cn/practice/29903/          |
 | 0430 | 28972:海拔      | Kruskal, binary+bfs, Dijkstra     | Tough | http://cs101.openjudge.cn/practice/28972          |
 | 0429 | 28050: 骑士周游   | backtracking, Warnsdorff  | Tought | http://cs101.openjudge.cn/practice/28050/          |
 | 0428 | 28046: 词梯      | bfs       | Medium | http://cs101.openjudge.cn/practice/28046/          |

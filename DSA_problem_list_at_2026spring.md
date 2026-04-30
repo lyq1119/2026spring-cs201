@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-04-29 21:52 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-04-30 11:27 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -21,6 +21,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | todo | 09202: 舰队、海域出击！   | topological order    | Medium    | http://cs101.openjudge.cn/practice/09202/      |
 | todo | 01258: Agri-Net   | MST    | Medium    | http://cs101.openjudge.cn/practice/01258/      |
 |  |       |       | Medium |          |
+| 0502 | 3742.网格中得分最大的路径     | dp     | Medium | https://leetcode.cn/problems/maximum-path-score-in-a-grid/          |
 | 0501 | 29803:穿越火线     | binary search + Dijkstra       | Tough | http://cs101.openjudge.cn/practice/29903/          |
 | 0430 | 28972:海拔      | Kruskal, binary+bfs, Dijkstra     | Tough | http://cs101.openjudge.cn/practice/28972          |
 | 0429 | 28050: 骑士周游   | backtracking, Warnsdorff  | Tought | http://cs101.openjudge.cn/practice/28050/          |

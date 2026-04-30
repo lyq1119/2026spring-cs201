@@ -21,6 +21,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | todo | 09202: 舰队、海域出击！   | topological order    | Medium    | http://cs101.openjudge.cn/practice/09202/      |
 | todo | 01258: Agri-Net   | MST    | Medium    | http://cs101.openjudge.cn/practice/01258/      |
 |  |       |       | Medium |          |
+| 0505 | 2502: Subway   | dijkstra | Tough | http://cs101.openjudge.cn/practice/02502/          |
 | 0504 | 02442:Sequence     | heap, greedy      | Tough | http://cs101.openjudge.cn/practice/02442/          |
 | 0503 | 2075C. Two Colors  | binary search, two pointers, combinatorics, math      | 1500 | https://codeforces.com/contest/2075/problem/C  |
 | 0502 | 3742.网格中得分最大的路径     | dp     | Medium | https://leetcode.cn/problems/maximum-path-score-in-a-grid/          |

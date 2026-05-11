@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-05-08 10:13 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-05-11 14:10 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -14,13 +14,13 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| todo | 30313: 0-W 最小生成树      | 补图连通块 + 缩点 Kruskal       | Toughm | http://cs101.openjudge.cn/practice/T30313          |
-| todo | 29702:二叉的水管  | topological order       | Tough | http://cs101.openjudge.cn/practice/29702/          |
-| todo | 05442: 兔子与星空 | MST   | Medium    | http://cs101.openjudge.cn/practice/05442/      |
-| todo | 05443: 兔子与樱花 | dijkstra, Floyd-Warshall      | Medium | http://cs101.openjudge.cn/practice/05443/          |
-| todo | 09202: 舰队、海域出击！   | topological order    | Medium    | http://cs101.openjudge.cn/practice/09202/      |
-| todo | 01258: Agri-Net   | MST    | Medium    | http://cs101.openjudge.cn/practice/01258/      |
+| todo | 30313: 0-W 最小生成树      | 补图连通块 + 缩点 Kruskal       | Tough | http://cs101.openjudge.cn/practice/T30313          |
 |  |       |       | Medium |          |
+| 0515 | 29702:二叉的水管  | topological order       | Tough | http://cs101.openjudge.cn/practice/29702/          |
+| 0514 | 09202: 舰队、海域出击！   | topological order    | Medium    | http://cs101.openjudge.cn/practice/09202/      |
+| 0513 | 05442: 兔子与星空 | MST   | Medium    | http://cs101.openjudge.cn/practice/05442/      |
+| 0512 | 01258: Agri-Net   | MST    | Medium    | http://cs101.openjudge.cn/practice/01258/      |
+| 0511 | 05443: 兔子与樱花 | dijkstra, Floyd-Warshall      | Medium | http://cs101.openjudge.cn/practice/05443/          |
 | 0510 | 3629.通过质数传送到达终点的最少跳跃次数      | bfs, hash table, number theory       | Medium | https://leetcode.cn/problems/minimum-jumps-to-reach-end-via-prime-teleportation/          |
 | 0509 | 3660.跳跃游戏 IX   | greedy, graph   | Medium | https://leetcode.cn/problems/jump-game-ix/          |
 | 0508 | 30669: 地铁换乘    | LCA, binary lifting   | Tough | http://cs101.openjudge.cn/practice/30669/          |

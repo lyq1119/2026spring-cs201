@@ -45,7 +45,7 @@ monotonic stack, http://cs101.openjudge.cn/practice/04137/
 
 ### E04143: 和为给定数 
 
-two pointers, http://cs101.openjudge.cn/dsapre/04143/
+two pointers, http://cs101.openjudge.cn/practice/04143/
 
 
 思路：

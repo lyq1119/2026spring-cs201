@@ -1,6 +1,6 @@
 # Week2 树状数组（Binary Indexed Tree）
 
-*Updated 2026-03-18 10:34 GMT+8*
+*Updated 2026-05-18 20:45 GMT+8*
  *Compiled by Hongfei Yan (2025 Spring)*
 
 
@@ -15,9 +15,10 @@
 
 
 
-# 1 位运算（Bit Manipulation）
+# 1 位操作
 
-- **类别**：**编程技巧**
+位操作（Bit Manipulation）指的是对整数二进制表示的一元和二元操作，分为 **位运算** 和 **移位** 两类．位操作是 CPU 中最基础的一类运算，其速度往往是相当快的。
+
 - **说明**：位运算是利用二进制位进行操作（如 &、|、^、<<、>> 等）来高效解决问题的方法。它本身不是算法或数据结构，但广泛用于**优化算法**、**状态压缩**、**哈希**、**奇偶判断**等场景。
 - **典型应用**：Lowbit、判断是否为 2 的幂、集合表示（状态压缩 DP）等。
 
@@ -34,8 +35,6 @@ bit manipulation, https://leetcode.cn/problems/sort-integers-by-the-number-of-1-
 如果存在多个数字二进制中 **1** 的数目相同，则必须将它们按照数值大小升序排列。
 
 请你返回排序后的数组。
-
- 
 
 **示例 1：**
 
@@ -106,7 +105,7 @@ bit manipulation, https://leetcode.cn/problems/count-monobit-integers/
 
 返回范围`[0, n]`（包括两端）内 **单比特数** 的个数。
 
- 
+
 
 **示例 1：**
 
@@ -132,9 +131,7 @@ bit manipulation, https://leetcode.cn/problems/count-monobit-integers/
 
  
 
-**提示：**
-
-- `0 <= n <= 1000`
+**提示：**0 <= n <= 1000`
 
 
 
@@ -151,7 +148,50 @@ class Solution:
 
 
 
-## 1.2 位运算编程题目
+## 1.2 位操作编程题目
+
+
+
+`sub = (sub - 1) & mask` 是一个经典的位运算技巧，但它的作用是**枚举一个集合（mask）的所有子集**。
+
+如果你有一个掩码（比如 `1011`），这个公式会带你遍历 `1011, 1010, 1001, 1000, 0011, 0010, 0001, 0000`。它是在已知一个数字的情况下，寻找它的子集。
+
+```python
+def enumerate_subsets(mask):
+    """
+    使用 (sub - 1) & mask 技巧，降序枚举 mask 的所有非空子集
+    """
+    print(f"掩码 mask = {mask} (二进制: {bin(mask)}) 的所有非空子集：")
+
+    sub = mask
+    while sub > 0:
+        print(f"  {sub} (二进制: {bin(sub)})")
+        sub = (sub - 1) & mask
+
+    # 如果需要包含空集（0），可以在循环结束后单独处理
+    print(f"  0 (二进制: {bin(0)})")
+
+
+# 示例：枚举 mask = 11 (二进制 1011) 的所有子集
+mask = 0b1011  # 十进制为 11
+enumerate_subsets(mask)
+```
+
+> 之后讲到最小生成树的时候会遇到。
+>
+> P6192 【模板】最小斯坦纳树
+>
+> bitmask/state_compression dp, dijkstra , https://www.luogu.com.cn/problem/P6192
+
+
+
+状压 DP 是动态规划的一种，通过将状态集合转化为整数记录在 DP 状态中来实现状态转移的目的。为了达到更低的时间复杂度，通常需要寻找更低状态数的状态。大部分题目中会利用二元状态，用 n 位二进制数表示 n 个独立二元状态的情况。使用状态压缩通常涉及位操作。
+
+> T30201: 旅行售货商问题
+>
+> bitmask/state_compression dp, http://cs101.openjudge.cn/practice/30201/
+
+
 
 ### E868.二进制间距（assign#2）
 
@@ -194,9 +234,7 @@ bit manipulation, https://leetcode.cn/problems/binary-gap/
 
  
 
-**提示：**
-
-- `1 <= n <= 10^9`
+**提示：**1 <= n <= 10^9`
 
 
 
@@ -500,13 +538,9 @@ sample2 output:
 解释：10 的二进制表示为 "1010"，其二进制反码为 "0101"，也就是十进制中的 5 。
 ```
 
-提示
+提示：bit manipulation
 
-bit manipulation
-
-来源
-
-yan, https://leetcode.cn/problems/complement-of-base-10-integer/
+来源：yan, https://leetcode.cn/problems/complement-of-base-10-integer/
 
 
 
@@ -654,6 +688,51 @@ bit manipulation, https://leetcode.cn/problems/check-if-a-string-contains-all-bi
 
 
 
+**位运算思路**：在处理长度为 $k$ 的二进制子串时，通常使用位运算来优化**滑动窗口**：
+
+1.  **掩码 (Mask)：** 创建一个全为 1 的 $k$ 位掩码：`mask = (1 << k) - 1`。
+2.  **更新窗口：** 当窗口向右移动一位时：
+    *   左移一位：`num << 1`
+    *   加上新字符：`| int(s[i])`
+    *   **保持 $k$ 位：** `& mask`（这一步是关键，它会把溢出高位的 `1` 去掉）。
+
+Python 代码实现。时间复杂度是 $O(N)$，空间复杂度是 $O(2^k)$（用于记录出现的数字）。
+
+```python
+class Solution:
+    def hasAllCodes(self, s: str, k: int) -> bool:
+        # 总共需要找到 2^k 个不同的二进制数
+        need_count = 1 << k
+        # 使用集合记录已经出现的数字
+        seen = set()
+        
+        # 计算掩码，例如 k=3, mask=111 (二进制)
+        mask = (1 << k) - 1
+        current_num = 0
+        
+        for i in range(len(s)):
+            # 1. 将新字符移入窗口
+            # (current_num << 1) 将之前的位左移
+            # int(s[i]) 将当前字符转为数字 0 或 1
+            # & mask 确保窗口只保留 k 位
+            current_num = ((current_num << 1) | int(s[i])) & mask
+            
+            # 2. 当遍历到的字符足够组成一个长度为 k 的串时开始统计
+            if i >= k - 1:
+                if current_num not in seen:
+                    seen.add(current_num)
+                    need_count -= 1
+                    # 如果已经找齐了所有数字，提前返回 True
+                    if need_count == 0:
+                        return True
+                        
+        return False
+```
+
+**总结**：`num = (num << 1 | bit) & mask` 用于：**固定长度 $k$ 的位运算滑动窗口**。
+
+
+
 这道题的核心任务是判断在给定的二进制字符串 `s` 中，是否包含了所有可能出现的长度为 `k` 的二进制子串。
 
 长度为 `k` 的二进制子串共有 $2^k$ 种组合。为了验证是否所有组合都在 `s` 中出现过，最直观且高效的方法是：**遍历 `s` 中所有的长度为 `k` 的子串，将其放入集合（Set）中去重，最后判断集合的大小是否等于 $2^k$。**
@@ -711,7 +790,7 @@ class Solution:
 
 ### T30201: 旅行售货商问题
 
-bitmask dp, http://cs101.openjudge.cn/practice/30201/
+bitmask/state_compression dp, http://cs101.openjudge.cn/practice/30201/
 
 一个国家有 n 个城市，每两个城市之间都开设有航班，从城市 i 到城市 j 的航班价格为 cost[i, j] ，而且往、返航班的价格相同。
 
@@ -742,9 +821,15 @@ bitmask dp, http://cs101.openjudge.cn/practice/30201/
 7
 ```
 
-提示：dp, dfs
+提示：bitmask/state_compression dp, dfs
 
 来源：2025fall-cs101 yan
+
+
+
+>  Held-Karp 算法是一种利用**动态规划**来精确求解**旅行商问题（TSP）**的经典算法。
+>
+> 简单来说，旅行商问题（TSP）描述的是：一个推销员需要拜访 n 个城市，每个城市只能去一次，最后回到起点，目标是找到总路程最短的路线。Held-Karp 算法通过“空间换时间”的策略，将暴力穷举的阶乘级复杂度降低到了指数级，是目前求解中小规模 TSP 问题的主流精确算法。
 
 
 
@@ -843,6 +928,10 @@ def solve():
 if __name__ == '__main__':
     solve()
 ```
+
+mask 是集合而不是排列，这是状态压缩 DP 的灵魂。在这种视角下，**DP 实际上就是在集合的空间里做“剪枝过后的穷举”**。时间复杂度是：这正是状压 DP 能够把复杂度从 **$O(n!)$** 降到 **$O(2^n \cdot n^2)$** 的核心魔力所在。
+
+
 
 > 36行第2个for循环，`for j in range(n):`
 >

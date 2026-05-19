@@ -30,6 +30,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 0508 | 30669: 地铁换乘    | LCA, binary lifting   | Tough | http://cs101.openjudge.cn/practice/30669/          |
 | 0507 | M30720: 败方树的构建与维护    | tree       | Medium | http://cs101.openjudge.cn/practice/30720/          |
 | 0506 | 27093: 排队又来了  | Segment Tree, Discretization（离散化）, binary search | Tough | http://cs101.openjudge.cn/practice/27093/          |
+|  | P8099 [USACO22JAN] Minimizing Haybales P | 线段树, 二分, 拓扑排序  | 紫色 省选/NOI- | https://www.luogu.com.cn/problem/P8099          |
 | 0505 | 2502: Subway   | dijkstra | Tough | http://cs101.openjudge.cn/practice/02502/          |
 | 0504 | 02442:Sequence     | heap, greedy      | Tough | http://cs101.openjudge.cn/practice/02442/          |
 | 0503 | 2075C. Two Colors  | binary search, two pointers, combinatorics, math      | 1500 | https://codeforces.com/contest/2075/problem/C  |

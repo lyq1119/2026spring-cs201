@@ -1,5 +1,5 @@
 ## 2026spring 数算（DS Algo）每日选作
-*Updated 2026-05-12 20:30 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
+*Updated 2026-05-19 10:25 GMT+8*  *Compiled by Hongfei Yan (2026 Spring)*  
 https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spring.md
 
 题解，https://fuynaloft.github.io/sol101/ ✅
@@ -14,7 +14,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| todo | 30313: 0-W 最小生成树      | 补图连通块 + 缩点 Kruskal       | Tough | http://cs101.openjudge.cn/practice/T30313          |
+| 0520 | 30313: 0-W 最小生成树    | 补图连通块 + 缩点 Kruskal       | Tough | http://cs101.openjudge.cn/practice/T30313          |
 | 0519 | 28749: Top2招生工作      | 图论，线性同余方程组    | Tough | http://cs101.openjudge.cn/practice/28749/          |
 | 0518 | P1262 [POI 1996 R3] 间谍网络  | SCC      | 绿色 普及+/提高 | https://www.luogu.com.cn/problem/P1262          |
 | 0517 | P3387 【模板】缩点 | SCC      | 绿色 普及+/提高 | https://www.luogu.com.cn/problem/P3387          |
@@ -120,7 +120,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 | 0315 | 46.全排列    | backtracking      | Medium | https://leetcode.cn/problems/permutations/          |
 | 0314 | 20018:蚂蚁王国的越野跑  | <mark>merge sort</mark>, <mark>binary indexed tree</mark> | Medium2  | http://cs101.openjudge.cn/practice/20018/          |
 | 0314 | 131.分割回文串       | dp, backtracking  | Medium | https://leetcode.cn/problems/palindrome-partitioning/          |
-| 0313 | 30201: 旅行售货商问题  | <mark>bitmask dp</mark>  | Tough | http://cs101.openjudge.cn/practice/30201/       |
+| 0313 | 30201: 旅行售货商问题  | 状态压缩DP, Held-Karp   | Tough | http://cs101.openjudge.cn/practice/30201/       |
 | 0313 | 04067: 回文数字 | queue       | Easy       | http://cs101.openjudge.cn/pctbook/E04067          |
 | 0312 | 1888.使二进制字符串字符交替的最少反转次数 | <mark>sliding window</mark> | Medium2 | https://leetcode.cn/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/ |
 | 0312 | 1009.十进制整数的反码  | bit manipulation  | Easy | https://leetcode.cn/problems/complement-of-base-10-integer/description/          |

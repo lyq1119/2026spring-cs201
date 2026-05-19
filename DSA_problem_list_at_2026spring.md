@@ -14,6 +14,7 @@ https://github.com/GMyhf/2026spring-cs201/blob/main/DSA_problem_list_at_2026spri
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0521 | P6192 【模板】最小斯坦纳树  | 状态压缩DP, Dijkstra  | 紫色 省选/NOI-   | https://www.luogu.com.cn/problem/P6192 |
 | 0520 | 30313: 0-W 最小生成树    | 补图连通块 + 缩点 Kruskal       | Tough | http://cs101.openjudge.cn/practice/T30313          |
 | 0519 | 28749: Top2招生工作      | 图论，线性同余方程组    | Tough | http://cs101.openjudge.cn/practice/28749/          |
 | 0518 | P1262 [POI 1996 R3] 间谍网络  | SCC      | 绿色 普及+/提高 | https://www.luogu.com.cn/problem/P1262          |
